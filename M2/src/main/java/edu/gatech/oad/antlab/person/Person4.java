@@ -10,7 +10,7 @@ package edu.gatech.oad.antlab.person;
  */
 public class Person4 {
   /** Holds the persons real name */
-  private String name;
+  private String name = "Jin W. Chung";
     /**
      * The constructor, takes in the persons
      * name
@@ -25,13 +25,21 @@ public class Person4 {
      * than its previous value.  So
      * given "abc123" it should return
      * "bcd234".
-     *
+     * @NullExceptionError throw this when string is null.
      * @param input the string to be modified
      * @return the modified string
      */
     private String calc(String input) {
-      //Person 4 put your implementation here
-      return null;
+      if(input == null) {
+        throw NullExceptionError ("the string is void.");
+      }
+      char[] divided = input.toCharArray();
+      int[] before = (int[]) divided;
+      String after = "";
+      for(i = 0; i < before.length; i++) {
+        after += (char) (before[i] + 1);
+      }
+      return after;
     }
     
     /**
