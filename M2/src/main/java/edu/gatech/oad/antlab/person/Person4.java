@@ -25,19 +25,15 @@ public class Person4 {
      * than its previous value.  So
      * given "abc123" it should return
      * "bcd234".
-     * @NullExceptionError throw this when string is null.
+     *
      * @param input the string to be modified
      * @return the modified string
      */
     private String calc(String input) {
-      if(input == null) {
-        throw NullExceptionError ("the string is void.");
-      }
       char[] divided = input.toCharArray();
-      int[] before = (int[]) divided;
       String after = "";
-      for(int i = 0; i < before.length; i++) {
-        after += (char) (before[i] + 1);
+      for(int i = 0; i < divided.length; i++) {
+        after += (char) ((int) divided[i] + 1);
       }
       return after;
     }

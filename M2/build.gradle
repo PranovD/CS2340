@@ -11,6 +11,6 @@ jar {
         attributes 'Implementation-Title': 'Gradle_Quickstart',
                 'Implementation-Version': 4.1,
                 'Main-Class': 'edu.gatech.oad.antlab.pkg1.AntLabMain',
-                'Class-Path': '../../resources.jar'
+                'Class-Path': '../../lib/resources.jar'
     }
 }

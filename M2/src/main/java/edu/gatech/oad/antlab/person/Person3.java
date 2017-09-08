@@ -47,21 +47,19 @@ public class Person3 {
 	private String calc(String input) {
 		//Person 3 put your implementation here
 
-		if (input != null) {
-			char[] helper = input.toCharArray();
-			int start = 0;
-			int end = helper.length - 1;
-			char temp;
-			while (end > start) {
-				temp = helper[start];
-				helper[start] = helper[end];
-				helper[end] = temp;
-				end--;
-				start++;
-			}
-			return input;
-		} else {
-			throw new IllegalArumentExecption("String was null.");
+
+		char[] helper = input.toCharArray();
+		int start = 0;
+		int end = helper.length - 1;
+		char temp;
+		while (end > start) {
+			temp = helper[start];
+			helper[start] = helper[end];
+			helper[end] = temp;
+			end--;
+			start++;
 		}
+		return input;
+
 	}
 }
