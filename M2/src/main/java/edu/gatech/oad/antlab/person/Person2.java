@@ -31,6 +31,7 @@ public class Person2 {
 	 * @return the modified string
 	 */
 	private String calc(String input) {
+		Random random = new Random();
 		char charString[] = input.toCharArray();
 		for (int i = 0; i < charString.length; i++) {
 			int randomIndex = random.nextInt(charString.length);
