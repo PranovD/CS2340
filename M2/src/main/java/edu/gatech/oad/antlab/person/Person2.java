@@ -31,8 +31,8 @@ public class Person2 {
 	 */
 	private String calc(String input) {
 		char[] inputString = input.toCharArray();
-		for(int i = 0; i < inputString.length; i++) {
-			int randomIndex = (int)(Math.random() * inputString.length);
+		for(int i = 0; i < inputString.length - 1; i++) {
+			int randomIndex = (int)Math.floor(Math.random() * inputString.length);
 			char temp = inputString[i];
 			inputString[i] = inputString[randomIndex];
 			inputString[randomIndex] = inputString[temp];
