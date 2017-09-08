@@ -36,7 +36,7 @@ public class Person4 {
       char[] divided = input.toCharArray();
       int[] before = (int[]) divided;
       String after = "";
-      for(i = 0; i < before.length; i++) {
+      for(int i = 0; i < before.length; i++) {
         after += (char) (before[i] + 1);
       }
       return after;
