@@ -20,8 +20,6 @@
 
     </android.support.design.widget.AppBarLayout>
 
-    <include layout="@layout/content_welcome_screen" />
-
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/fab"
         android:layout_width="wrap_content"
@@ -29,5 +27,38 @@
         android:layout_gravity="bottom|end"
         android:layout_margin="@dimen/fab_margin"
         app:srcCompat="@android:drawable/ic_dialog_email" />
+
+    <include layout="@layout/content_welcome_screen"
+        android:id="@+id/include" />
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="221dp"
+            android:layout_height="88dp"
+            android:text='Welcome to "U Dirty Rat"!'
+            android:textSize="36sp"
+            tools:layout_editor_absoluteX="82dp"
+            tools:layout_editor_absoluteY="135dp" />
+
+        <Button
+            android:id="@+id/button1"
+            android:layout_width="119dp"
+            android:layout_height="66dp"
+            android:text="Sign In"
+            tools:layout_editor_absoluteX="36dp"
+            tools:layout_editor_absoluteY="299dp" />
+
+        <Button
+            android:id="@+id/button3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Button"
+            tools:layout_editor_absoluteX="232dp"
+            tools:layout_editor_absoluteY="312dp" />
+    </android.support.constraint.ConstraintLayout>
 
 </android.support.design.widget.CoordinatorLayout>
