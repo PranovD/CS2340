@@ -10,17 +10,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <EditText
-            android:id="@+id/Something"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="105dp"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:text="This is a temporary main @string/title_activity_main_page" />
-
         <Button
             android:id="@+id/logout"
             android:layout_width="wrap_content"
@@ -30,5 +19,15 @@
             android:layout_alignParentTop="true"
             android:layout_marginTop="16dp"
             android:text="Log Out" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/logout"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="63dp"
+            android:text="Main Page (Temporary)"
+            android:textSize="30sp" />
     </RelativeLayout>
 </android.support.design.widget.CoordinatorLayout>
