@@ -37,12 +37,12 @@
 
         <TextView
             android:id="@+id/textView"
-            android:layout_width="221dp"
-            android:layout_height="88dp"
+            android:layout_width="239dp"
+            android:layout_height="190dp"
             android:text='Welcome to "U Dirty Rat"!'
             android:textSize="36sp"
-            tools:layout_editor_absoluteX="82dp"
-            tools:layout_editor_absoluteY="135dp" />
+            tools:layout_editor_absoluteX="81dp"
+            tools:layout_editor_absoluteY="85dp" />
 
         <Button
             android:id="@+id/button1"
@@ -50,7 +50,7 @@
             android:layout_height="66dp"
             android:text="Sign In"
             tools:layout_editor_absoluteX="36dp"
-            tools:layout_editor_absoluteY="299dp" />
+            tools:layout_editor_absoluteY="325dp" />
 
         <Button
             android:id="@+id/button3"
@@ -58,7 +58,7 @@
             android:layout_height="wrap_content"
             android:text="Button"
             tools:layout_editor_absoluteX="232dp"
-            tools:layout_editor_absoluteY="312dp" />
+            tools:layout_editor_absoluteY="343dp" />
     </android.support.constraint.ConstraintLayout>
 
 </android.support.design.widget.CoordinatorLayout>
