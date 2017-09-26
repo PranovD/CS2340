@@ -6,59 +6,44 @@
     android:layout_height="match_parent"
     tools:context="com.example.jay.u_dirty_rat.WelcomeScreen">
 
-    <android.support.design.widget.AppBarLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:theme="@style/AppTheme.AppBarOverlay">
-
-        <android.support.v7.widget.Toolbar
-            android:id="@+id/toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="?attr/colorPrimary"
-            app:popupTheme="@style/AppTheme.PopupOverlay" />
-
-    </android.support.design.widget.AppBarLayout>
-
-    <android.support.design.widget.FloatingActionButton
-        android:id="@+id/fab"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom|end"
-        android:layout_margin="@dimen/fab_margin"
-        app:srcCompat="@android:drawable/ic_dialog_email" />
-
-    <include layout="@layout/content_welcome_screen"
-        android:id="@+id/include" />
-
-    <android.support.constraint.ConstraintLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
+        <Button
+            android:id="@+id/LogInButton"
+            android:layout_width="119dp"
+            android:layout_height="66dp"
+            android:layout_alignLeft="@+id/textView"
+            android:layout_alignStart="@+id/textView"
+            android:layout_below="@+id/textView"
+            android:layout_marginTop="114dp"
+            android:text="Sign In"
+            tools:layout_editor_absoluteX="36dp"
+            tools:layout_editor_absoluteY="324dp" />
+
+        <Button
+            android:id="@+id/RegisterButton"
+            android:layout_width="119dp"
+            android:layout_height="66dp"
+            android:layout_alignTop="@+id/LogInButton"
+            android:layout_toEndOf="@+id/LogInButton"
+            android:layout_toRightOf="@+id/LogInButton"
+            android:text="Register"
+            tools:layout_editor_absoluteX="36dp"
+            tools:layout_editor_absoluteY="324dp" />
 
         <TextView
             android:id="@+id/textView"
             android:layout_width="221dp"
             android:layout_height="88dp"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="82dp"
             android:text='Welcome to "U Dirty Rat"!'
             android:textSize="36sp"
             tools:layout_editor_absoluteX="82dp"
-            tools:layout_editor_absoluteY="135dp" />
-
-        <Button
-            android:id="@+id/button1"
-            android:layout_width="119dp"
-            android:layout_height="66dp"
-            android:text="Sign In"
-            tools:layout_editor_absoluteX="36dp"
-            tools:layout_editor_absoluteY="299dp" />
-
-        <Button
-            android:id="@+id/button3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Button"
-            tools:layout_editor_absoluteX="232dp"
-            tools:layout_editor_absoluteY="312dp" />
-    </android.support.constraint.ConstraintLayout>
+            tools:layout_editor_absoluteY="160dp" />
+    </RelativeLayout>
 
 </android.support.design.widget.CoordinatorLayout>
