@@ -14,6 +14,7 @@ import android.content.Loader;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.AsyncTask;
+import android.content.Intent;
 
 import android.os.Build;
 import android.os.Bundle;
@@ -38,10 +39,7 @@ import java.util.List;
  */
 public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<Cursor> {
 
-    /**
-     * Id to identity READ_CONTACTS permission request.
-     */
-    private static final int REQUEST_READ_CONTACTS = 0;
+
 
     /**
      * A dummy authentication store containing known user names and passwords.
@@ -61,6 +59,8 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
     private View mProgressView;
     private View mLoginFormView;
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -78,6 +78,14 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
                     return true;
                 }
                 return false;
+            }
+        });
+        Button cancelButton = (Button) findViewById(R.id.cancel_button);
+
+        cancelButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(LoginActivity.this, WelcomeScreen.class));
             }
         });
 
@@ -152,7 +160,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
 
     private boolean isEmailValid(String email) {
         //TODO: Replace this with your own logic
-        return email.contains("user");
+        return email.equals("user");
     }
 
     private boolean isPasswordValid(String password) {
@@ -300,10 +308,12 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             }
         }
 
+
         @Override
         protected void onCancelled() {
             mAuthTask = null;
             showProgress(false);
+
 
         }
 
