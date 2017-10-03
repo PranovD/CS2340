@@ -26,6 +26,13 @@ public class WelcomeScreen extends AppCompatActivity {
             }
         });
 
+        registerButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(WelcomeScreen.this, RegistrationActivity.class));
+            }
+        });
+
     }
 
 

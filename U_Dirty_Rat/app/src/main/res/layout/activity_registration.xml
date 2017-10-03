@@ -12,23 +12,30 @@
     android:baselineAligned="false">
 
     <!-- Login progress -->
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="match_parent"
+        android:layout_height="31dp"
+        android:text="Register a new account" />
+
     <ScrollView
-        android:id="@+id/login_form"
+        android:id="@+id/registration_form"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
         <LinearLayout
-            android:id="@+id/email_login_form"
+            android:id="@+id/email_registration_form"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:weightSum="1">
 
             <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
                 <AutoCompleteTextView
-                    android:id="@+id/username_input"
+                    android:id="@+id/username_registration_input"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Username"
@@ -42,7 +49,7 @@
                 android:layout_height="wrap_content">
 
                 <EditText
-                    android:id="@+id/password_input"
+                    android:id="@+id/password_registration_input"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Password"
@@ -54,17 +61,24 @@
 
             </android.support.design.widget.TextInputLayout>
 
+            <CheckBox
+                android:id="@+id/admin"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:text="Administrator"
+                android:layout_weight="1.88" />
+
             <Button
-                android:id="@+id/sign_in_button"
+                android:id="@+id/registration_button"
                 style="@style/Widget.AppCompat.Button"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:text="Sign in"
+                android:text="Register"
                 android:textStyle="bold" />
 
             <Button
-                android:id="@+id/cancel_button"
+                android:id="@+id/registration_cancel_button"
                 style="@style/Widget.AppCompat.Button"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -72,13 +86,5 @@
                 android:textStyle="bold" />
         </LinearLayout>
     </ScrollView>
-
-    <ProgressBar
-        android:id="@+id/login_progress"
-        style="?android:attr/progressBarStyleLarge"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:visibility="gone" />
 
 </LinearLayout>

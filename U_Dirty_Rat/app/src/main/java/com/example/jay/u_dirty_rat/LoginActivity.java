@@ -41,11 +41,11 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
 
 
 
+
     /**
-     * A dummy authentication store containing known user names and passwords.
-     * TODO: remove after connecting to a real authentication system.
+     * I'm not sure what this does
      */
-    private static final String[] DUMMY_CREDENTIALS = new String[]{
+    private static final String[] DUMMY_CREDENTIALS = new String[] {
             "user"
     };
     /**
@@ -121,14 +121,14 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         mPasswordView.setError(null);
 
         // Store values at the time of the login attempt.
-        String email = mEmailView.getText().toString();
-        String password = mPasswordView.getText().toString();
+        String email = mEmailView.getText().toString().trim();
+        String password = mPasswordView.getText().toString().trim();
 
         boolean cancel = false;
         View focusView = null;
 
         // Check for a valid password, if the user entered one.
-        if (!TextUtils.isEmpty(password) && !isPasswordValid(password)) {
+        if (!TextUtils.isEmpty(password) && !isPasswordValid(email, password)) {
             mPasswordView.setError(getString(R.string.error_invalid_password));
             focusView = mPasswordView;
             cancel = true;
@@ -151,20 +151,18 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             focusView.requestFocus();
         }
 
-        if(isEmailValid(email)&&isPasswordValid(password)){
+        if(isEmailValid(email)&&isPasswordValid(email, password)){
 
             startActivity(new Intent(LoginActivity.this, MainPage.class));
         }
     }
 
     private boolean isEmailValid(String email) {
-        //TODO: Replace this with your own logic
-        return email.equals("user");
+        return UserDB.contains(email);
     }
 
-    private boolean isPasswordValid(String password) {
-        //TODO: Replace this with your own logic
-        return password.equals("pass");
+    private boolean isPasswordValid(String email, String password) {
+        return UserDB.isCorrectPassword(email, password);
     }
 
     /**

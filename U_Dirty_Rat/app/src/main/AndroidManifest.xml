@@ -28,6 +28,9 @@
             android:name=".LoginActivity"
             android:label="@string/title_activity_login" />
         <activity
+            android:name=".RegistrationActivity"
+            android:label="@string/title_activity_registration" />
+        <activity
             android:name=".MainPage"
             android:label="@string/title_activity_main_page"
             android:theme="@style/AppTheme.NoActionBar"></activity>
