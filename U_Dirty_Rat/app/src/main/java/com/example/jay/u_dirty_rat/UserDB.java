@@ -2,6 +2,10 @@ package com.example.jay.u_dirty_rat;
 
 import java.util.ArrayList;
 
+/**
+ * Singleton class used as a database
+ */
+
 public class UserDB {
 
     private static UserDB INSTANCE = null;

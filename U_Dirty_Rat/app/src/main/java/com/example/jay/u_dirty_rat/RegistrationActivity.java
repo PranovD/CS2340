@@ -75,22 +75,33 @@ public class RegistrationActivity extends AppCompatActivity {
     }
 
 
-
+    /**
+     * Attempts to register a new user. If successful, sends logged in user to MainPage
+     */
     private void registerUser() {
         String email = usernameInput.getText().toString().trim();
         String password = passwordInput.getText().toString().trim();
         boolean isAdmin = adminInput.isChecked();
 
+        /**
+         * Checks to make sure fields are filled out correctly
+         */
         if(TextUtils.isEmpty(email)) {
-            Toast.makeText(this, "Please enter an email address", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Please enter a username", Toast.LENGTH_SHORT).show();
             return;
         }
+        /**
+         * Checks to make sure fields are filled out correctly
+         */
         if(TextUtils.isEmpty(password)) {
             Toast.makeText(this, "Please enter a password", Toast.LENGTH_SHORT).show();
             return;
         }
+        /**
+         * Checks if that username is taken already
+         */
         if(UserDB.contains(email)) {
-            Toast.makeText(this, "That email address is taken", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "That username is taken", Toast.LENGTH_SHORT).show();
             return;
         }
 
