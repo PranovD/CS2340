@@ -14,12 +14,12 @@ public class Rat {
     private String incidentAddress;
     private String city;
     private String borough;
-    private String latitude;
-    private String longitude;
+    private double latitude;
+    private double longitude;
 
 
     public Rat(int Unique_Key,String Date, String Location_Type,int Incident_Zip,String Incident_Address,
-               String City,String Borough,String Latitude,String Longitude) {
+               String City,String Borough,double Latitude,double Longitude) {
         this.uniqueKey = Unique_Key;
         this.date = Date;
         this.locationType = Location_Type;
@@ -31,6 +31,8 @@ public class Rat {
         this.longitude = Longitude;
     }
 
+    //getter method for rat report.
+
     public int getUniqueKey() {
         return uniqueKey;
     }
@@ -39,12 +41,58 @@ public class Rat {
         return date;
     }
 
-    public String getLocationType() {
-        return locationType;
-    }
+    public String getLocationType() { return locationType;}
+
+    public int getIncidentZip() { return  incidentZip;}
 
     public String getIncidentAddress() {
         return incidentAddress;
     }
 
+    public String getCity() { return city;}
+
+    public String getBorough() { return borough;}
+
+    public double getLatitude() { return latitude;}
+
+    public double getLongitude() { return longitude;}
+
+    //setter method for rat report.
+
+
+    public void setUniqueKey(int uniqueKey) {
+        this.uniqueKey = uniqueKey;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
+
+    public void setLocationType(String locationType) {
+        this.locationType = locationType;
+    }
+
+    public void setIncidentZip(int incidentZip) {
+        this.incidentZip = incidentZip;
+    }
+
+    public void setIncidentAddress(String incidentAddress) {
+        this.incidentAddress = incidentAddress;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public void setLatitude(double latitude) {
+        this.latitude = latitude;
+    }
+
+    public void setLongitude(double longitude) {
+        this.longitude = longitude;
+    }
+
+    public void setBorough(String borough) {
+        this.borough = borough;
+    }
 }
