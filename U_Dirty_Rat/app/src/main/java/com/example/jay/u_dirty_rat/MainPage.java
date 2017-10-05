@@ -2,12 +2,15 @@ package com.example.jay.u_dirty_rat;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
+import android.app.Activity;
+import android.os.Parcelable;
+import android.widget.ListView;
+import java.io.InputStream;
+import java.util.List;
+
 
 public class MainPage extends AppCompatActivity {
 
@@ -26,6 +29,9 @@ public class MainPage extends AppCompatActivity {
                 startActivity(new Intent(MainPage.this, WelcomeScreen.class));
             }
         });
+
+        //loading in CSV file.
+        InputStream inputStream = getResources().openRawResource()
     }
 
 }
