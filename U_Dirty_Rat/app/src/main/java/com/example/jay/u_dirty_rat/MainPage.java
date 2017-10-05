@@ -31,7 +31,8 @@ public class MainPage extends AppCompatActivity {
         });
 
         //loading in CSV file.
-        InputStream inputStream = getResources().openRawResource()
+        InputStream inputStream = getResources().openRawResource(R.raw.Rat_Sightings);
+
     }
 
 }
