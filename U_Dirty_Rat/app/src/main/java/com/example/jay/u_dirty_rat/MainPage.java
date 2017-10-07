@@ -8,7 +8,11 @@ import android.widget.Button;
 import android.app.Activity;
 import android.os.Parcelable;
 import android.widget.ListView;
+
+import java.io.BufferedReader;
 import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -32,6 +36,13 @@ public class MainPage extends AppCompatActivity {
 
         //loading in CSV file.
         InputStream inputStream = getResources().openRawResource(R.raw.Rat_Sightings);
+        BufferedReader reader = new BufferedReader
+                (new InputStreamReader(inputStream));
+        reader.readLine()
+
+        String rawReport = "";
+
+
 
     }
 

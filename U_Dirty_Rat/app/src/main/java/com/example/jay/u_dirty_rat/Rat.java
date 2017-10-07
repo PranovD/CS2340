@@ -32,7 +32,6 @@ public class Rat {
     }
 
     //getter method for rat report.
-
     public int getUniqueKey() {
         return uniqueKey;
     }
@@ -58,8 +57,6 @@ public class Rat {
     public double getLongitude() { return longitude;}
 
     //setter method for rat report.
-
-
     public void setUniqueKey(int uniqueKey) {
         this.uniqueKey = uniqueKey;
     }
