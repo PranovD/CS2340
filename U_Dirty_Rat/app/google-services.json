@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "699553469476-qpjlmokdlpclvoff64lsasdrf7k0dj50.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.jay.u_dirty_rat",
+            "certificate_hash": "85b7fcb36b14e0c2f741b59afff4c24eb2bdcaea"
+          }
+        },
+        {
           "client_id": "699553469476-vtivk15bcoqfvqc77r65la1ne5v9tvj5.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {

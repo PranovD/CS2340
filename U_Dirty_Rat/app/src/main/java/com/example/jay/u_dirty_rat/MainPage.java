@@ -5,15 +5,11 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
-import android.app.Activity;
-import android.os.Parcelable;
-import android.widget.ListView;
 
 import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.util.ArrayList;
-import java.util.List;
+import java.io.IOException;
 
 
 public class MainPage extends AppCompatActivity {
@@ -35,10 +31,13 @@ public class MainPage extends AppCompatActivity {
         });
 
         //loading in CSV file.
-        InputStream inputStream = getResources().openRawResource(R.raw.Rat_Sightings);
+        InputStream inputStream = getResources().openRawResource(R.raw.rat_sightings);
         BufferedReader reader = new BufferedReader
                 (new InputStreamReader(inputStream));
-        reader.readLine()
+        try {
+            reader.readLine();
+        } catch (IOException e) {
+        }
 
         String rawReport = "";
 
