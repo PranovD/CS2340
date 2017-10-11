@@ -14,6 +14,8 @@ public class WelcomeScreen extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_welcome_screen);
 
+
+
         //creating button objects to use as action listener.
         Button loginButton = (Button) findViewById(R.id.LogInButton);
         Button registerButton = (Button) findViewById(R.id.RegisterButton); // for future.
