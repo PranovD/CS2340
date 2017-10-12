@@ -119,10 +119,6 @@ public class RegistrationActivity extends AppCompatActivity {
     }
 
 
-
-
-
-
     /**
      * Attempts to register a new user. If successful, sends logged in user to MainPage
      */
@@ -145,13 +141,7 @@ public class RegistrationActivity extends AppCompatActivity {
             Toast.makeText(this, "Please enter a password", Toast.LENGTH_SHORT).show();
             return;
         }
-        /**
-         * Checks if that username is taken already
-         */
-        if(UserDB.contains(email)) {
-            Toast.makeText(this, "That username is taken", Toast.LENGTH_SHORT).show();
-            return;
-        }
+
         mAuth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
@@ -169,7 +159,7 @@ public class RegistrationActivity extends AppCompatActivity {
                         // ...
                     }
                 });
-        UserDB.add(email, password, isAdmin);
+
         startActivity(new Intent(RegistrationActivity.this, MainPage.class));
 
     }
