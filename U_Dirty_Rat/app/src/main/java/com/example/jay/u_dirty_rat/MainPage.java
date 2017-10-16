@@ -6,7 +6,10 @@ import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ListView;
 import android.widget.Spinner;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -25,6 +28,7 @@ public class MainPage extends AppCompatActivity {
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
     private static final String TAG = "MainActivity";
+    public static Rat selected;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,24 +72,36 @@ public class MainPage extends AppCompatActivity {
         try {
             String rawreport;
             while((rawreport = reader.readLine()) != null) {
-                String[] pieces = rawreport.split(",");
-                Rat report = new Rat(Integer.parseInt(pieces[0]),
+                String[] pieces = rawreport.split(",",-1);
+                Rat report = new Rat(pieces[0],
                         pieces[1],
                         pieces[2],
-                        Integer.parseInt(pieces[3]),
+                        pieces[3],
                         pieces[4],
                         pieces[5],
                         pieces[6],
-                        Double.parseDouble(pieces[7]),
-                        Double.parseDouble(pieces[8]));
+                        pieces[7],
+                        pieces[8]);
                 database.add(report);
         }
         } catch (IOException e) {
         }
+        System.out.println("FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF");
+        System.out.print(database.get(1).toString());
+        ListView recentList = (ListView) findViewById(R.id.recentList);
+        ArrayAdapter<Rat> arrayAdapter = new ArrayAdapter<>(this,
+                android.R.layout.simple_list_item_1, android.R.id.text1, database);
 
-        Spinner spinner = (Spinner)
+        recentList.setAdapter(arrayAdapter);
 
-
+        recentList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                int position = i;
+                selected = (Rat) recentList.getItemAtPosition(position);
+                startActivity(new Intent(MainPage.this, ViewSingleReport.class));
+            }
+        });
     }
 
     @Override

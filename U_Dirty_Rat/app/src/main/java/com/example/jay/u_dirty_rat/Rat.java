@@ -7,19 +7,19 @@ package com.example.jay.u_dirty_rat;
  */
 
 public class Rat {
-    private int uniqueKey;
+    private String uniqueKey;
     private String date;
     private String locationType;
-    private int incidentZip;
+    private String incidentZip;
     private String incidentAddress;
     private String city;
     private String borough;
-    private double latitude;
-    private double longitude;
+    private String latitude;
+    private String longitude;
 
 
-    public Rat(int Unique_Key,String Date, String Location_Type,int Incident_Zip,String Incident_Address,
-               String City,String Borough,double Latitude,double Longitude) {
+    public Rat(String Unique_Key,String Date, String Location_Type,String Incident_Zip,String Incident_Address,
+               String City,String Borough,String Latitude,String Longitude) {
         this.uniqueKey = Unique_Key;
         this.date = Date;
         this.locationType = Location_Type;
@@ -32,7 +32,7 @@ public class Rat {
     }
 
     //getter method for rat report.
-    public int getUniqueKey() {
+    public String getUniqueKey() {
         return uniqueKey;
     }
 
@@ -42,7 +42,7 @@ public class Rat {
 
     public String getLocationType() { return locationType;}
 
-    public int getIncidentZip() { return  incidentZip;}
+    public String getIncidentZip() { return  incidentZip;}
 
     public String getIncidentAddress() {
         return incidentAddress;
@@ -52,12 +52,12 @@ public class Rat {
 
     public String getBorough() { return borough;}
 
-    public double getLatitude() { return latitude;}
+    public String getLatitude() { return latitude;}
 
-    public double getLongitude() { return longitude;}
+    public String getLongitude() { return longitude;}
 
     //setter method for rat report.
-    public void setUniqueKey(int uniqueKey) {
+    public void setUniqueKey(String uniqueKey) {
         this.uniqueKey = uniqueKey;
     }
 
@@ -69,7 +69,7 @@ public class Rat {
         this.locationType = locationType;
     }
 
-    public void setIncidentZip(int incidentZip) {
+    public void setIncidentZip(String incidentZip) {
         this.incidentZip = incidentZip;
     }
 
@@ -81,15 +81,20 @@ public class Rat {
         this.city = city;
     }
 
-    public void setLatitude(double latitude) {
+    public void setLatitude(String latitude) {
         this.latitude = latitude;
     }
 
-    public void setLongitude(double longitude) {
+    public void setLongitude(String longitude) {
         this.longitude = longitude;
     }
 
     public void setBorough(String borough) {
         this.borough = borough;
+    }
+
+    @Override
+    public String toString() {
+        return this.uniqueKey + ", " + this.date;
     }
 }
