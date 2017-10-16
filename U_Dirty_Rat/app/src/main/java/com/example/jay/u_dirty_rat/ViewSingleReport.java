@@ -1,7 +1,10 @@
 package com.example.jay.u_dirty_rat;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import static com.example.jay.u_dirty_rat.MainPage.selected;
@@ -32,6 +35,14 @@ public class ViewSingleReport extends AppCompatActivity {
         content7.setText(selected.getBorough());
         content8.setText(selected.getLatitude());
         content9.setText(selected.getLongitude());
+
+        Button backButton = (Button) findViewById(R.id.backButton);
+        backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(ViewSingleReport.this, MainPage.class));
+            }
+        });
 
     }
 }
