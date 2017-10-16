@@ -24,12 +24,12 @@
             android:id="@+id/textView2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/logout"
             android:layout_marginTop="29dp"
             android:text="Recent 10 reports"
-            android:textSize="30sp"
-            android:layout_below="@+id/logout"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true" />
+            android:textSize="30sp" />
 
         <Button
             android:id="@+id/filterButton"
@@ -54,14 +54,20 @@
             android:layout_marginRight="60dp"
             android:text="View" />
 
-        <Spinner
-            android:id="@+id/spinnerReport"
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
             android:layout_below="@+id/textView2"
-            android:layout_marginTop="18dp" />
+            android:layout_alignBottom="@+id/filterButton"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true">
+
+            <ListView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </ScrollView>
 
     </RelativeLayout>
 </android.support.design.widget.CoordinatorLayout>
