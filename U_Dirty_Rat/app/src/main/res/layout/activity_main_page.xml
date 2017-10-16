@@ -24,10 +24,44 @@
             android:id="@+id/textView2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="29dp"
+            android:text="Recent 10 reports"
+            android:textSize="30sp"
             android:layout_below="@+id/logout"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="63dp"
-            android:text="Main Page (Temporary)"
-            android:textSize="30sp" />
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+
+        <Button
+            android:id="@+id/filterButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginBottom="67dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginStart="50dp"
+            android:text="Search" />
+
+        <Button
+            android:id="@+id/ViewButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignTop="@+id/filterButton"
+            android:layout_marginEnd="60dp"
+            android:layout_marginRight="60dp"
+            android:text="View" />
+
+        <Spinner
+            android:id="@+id/spinnerReport"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/textView2"
+            android:layout_marginTop="18dp" />
+
     </RelativeLayout>
 </android.support.design.widget.CoordinatorLayout>
