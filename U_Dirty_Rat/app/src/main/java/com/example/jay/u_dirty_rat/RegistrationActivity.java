@@ -155,8 +155,6 @@ public class RegistrationActivity extends AppCompatActivity {
                             Toast.makeText(RegistrationActivity.this, R.string.auth_failed,
                                     Toast.LENGTH_SHORT).show();
                         }
-
-                        // ...
                     }
                 });
 
