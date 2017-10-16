@@ -40,7 +40,7 @@
                 android:text="Date" />
 
             <TextView
-                android:id="@+id/content"
+                android:id="@+id/dateContent"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
@@ -71,7 +71,7 @@
                 android:text="Location Type" />
 
             <TextView
-                android:id="@+id/textView14"
+                android:id="@+id/locationTypeContent"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
@@ -85,12 +85,12 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
-                android:layout_below="@+id/textView14"
+                android:layout_below="@+id/locationTypeContent"
                 android:layout_marginTop="10dp"
                 android:text="Incident Zip" />
 
             <TextView
-                android:id="@+id/IncidentZipContent"
+                android:id="@+id/incidentZipContent"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
@@ -104,12 +104,12 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
-                android:layout_below="@+id/IncidentZipContent"
+                android:layout_below="@+id/incidentZipContent"
                 android:layout_marginTop="11dp"
                 android:text="Incident Address" />
 
             <TextView
-                android:id="@+id/IncAddrContent"
+                android:id="@+id/incAddrContent"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
@@ -123,12 +123,12 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
-                android:layout_below="@+id/IncAddrContent"
+                android:layout_below="@+id/incAddrContent"
                 android:layout_marginTop="13dp"
                 android:text="City" />
 
             <TextView
-                android:id="@+id/CityContent"
+                android:id="@+id/cityContent"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
@@ -142,12 +142,12 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
-                android:layout_below="@+id/CityContent"
+                android:layout_below="@+id/cityContent"
                 android:layout_marginTop="16dp"
                 android:text="Borough" />
 
             <TextView
-                android:id="@+id/BoroContent"
+                android:id="@+id/boroContent"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
@@ -161,12 +161,12 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
-                android:layout_below="@+id/BoroContent"
+                android:layout_below="@+id/boroContent"
                 android:layout_marginTop="18dp"
                 android:text="Latitude" />
 
             <TextView
-                android:id="@+id/LatitudeContent"
+                android:id="@+id/latitudeContent"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
@@ -180,12 +180,12 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
-                android:layout_below="@+id/LatitudeContent"
+                android:layout_below="@+id/latitudeContent"
                 android:layout_marginTop="18dp"
                 android:text="Longitude" />
 
             <TextView
-                android:id="@+id/LongitudeContent"
+                android:id="@+id/longitudeContent"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"

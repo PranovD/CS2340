@@ -200,9 +200,9 @@ public class LoginActivity extends AppCompatActivity {
                     }
                 });
 
-        //if (!cancel) {
+        if (!cancel) {
             startActivity(new Intent(LoginActivity.this, MainPage.class));
-        //}
+        }
     }
 
 }
