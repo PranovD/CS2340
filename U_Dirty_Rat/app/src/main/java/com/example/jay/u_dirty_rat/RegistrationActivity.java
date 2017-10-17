@@ -78,11 +78,11 @@ public class RegistrationActivity extends AppCompatActivity {
                 if (user != null) {
                     // User is signed in
                     Log.d(TAG, "onAuthStateChanged:signed_in:" + user.getUid());
+                    startActivity(new Intent(RegistrationActivity.this, MainPage.class));
                 } else {
                     // User is signed out
                     Log.d(TAG, "onAuthStateChanged:signed_out");
                 }
-                // ...
             }
         };
         Button cancelButton = (Button) findViewById(R.id.registration_cancel_button);
@@ -155,13 +155,8 @@ public class RegistrationActivity extends AppCompatActivity {
                             Toast.makeText(RegistrationActivity.this, R.string.auth_failed,
                                     Toast.LENGTH_SHORT).show();
                         }
-
-                        // ...
                     }
                 });
-
-        startActivity(new Intent(RegistrationActivity.this, MainPage.class));
-
     }
 
 }
