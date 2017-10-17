@@ -3,7 +3,7 @@ package com.example.jay.u_dirty_rat;
 /**
  * Created by jw_chung on 10/5/17.
  * this class will allow us to handle
- * each rat report as a single object.
+ * each rat report as a single object. (cluster of strings)
  */
 
 public class Rat {
