@@ -59,6 +59,7 @@ public class MainPage extends AppCompatActivity {
         logOutButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                mAuth.signOut();
                 startActivity(new Intent(MainPage.this, WelcomeScreen.class));
             }
         });
