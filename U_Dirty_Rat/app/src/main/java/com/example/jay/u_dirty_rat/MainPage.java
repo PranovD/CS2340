@@ -20,7 +20,10 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
+
+import static java.lang.Integer.parseInt;
 
 
 public class MainPage extends AppCompatActivity {
@@ -29,6 +32,7 @@ public class MainPage extends AppCompatActivity {
     private FirebaseAuth.AuthStateListener mAuthListener;
     private static final String TAG = "MainActivity";
     public static Rat selected;
+    public static int mostRecent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -74,7 +78,7 @@ public class MainPage extends AppCompatActivity {
             String rawreport;
             while((rawreport = reader.readLine()) != null) { //while there is a report,
                 String[] pieces = rawreport.split(",",-1);
-                Rat report = new Rat(pieces[0],
+                Rat report = new Rat(parseInt(pieces[0]),
                         pieces[1],
                         pieces[2],
                         pieces[3],
@@ -102,6 +106,22 @@ public class MainPage extends AppCompatActivity {
                 //create selected report as a static variable so that I can use this on view page.
                 selected = (Rat) recentList.getItemAtPosition(position);
                 startActivity(new Intent(MainPage.this, ViewSingleReport.class));
+            }
+        });
+
+        Button reportButton = (Button) findViewById(R.id.reportButton);
+
+        reportButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mostRecent = 0;
+                for (Iterator<Rat> i = database.iterator(); i.hasNext();) {
+                    Rat report = i.next();
+                    if(mostRecent == 0 || mostRecent < report.getUniqueKey()) {
+                        mostRecent = report.getUniqueKey();
+                    }
+                }
+                startActivity(new Intent(MainPage.this, ReportingActivity.class));
             }
         });
     }

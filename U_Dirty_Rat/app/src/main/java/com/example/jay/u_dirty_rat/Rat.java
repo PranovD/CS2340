@@ -7,7 +7,7 @@ package com.example.jay.u_dirty_rat;
  */
 
 public class Rat {
-    private String uniqueKey;
+    private int uniqueKey;
     private String date;
     private String locationType;
     private String incidentZip;
@@ -18,7 +18,7 @@ public class Rat {
     private String longitude;
 
 
-    public Rat(String Unique_Key,String Date, String Location_Type,String Incident_Zip,String Incident_Address,
+    public Rat(int Unique_Key,String Date, String Location_Type,String Incident_Zip,String Incident_Address,
                String City,String Borough,String Latitude,String Longitude) {
         this.uniqueKey = Unique_Key;
         this.date = Date;
@@ -32,9 +32,7 @@ public class Rat {
     }
 
     //getter method for rat report.
-    public String getUniqueKey() {
-        return uniqueKey;
-    }
+    public int getUniqueKey() { return uniqueKey; }
 
     public String getDate() {
         return date;
@@ -57,7 +55,7 @@ public class Rat {
     public String getLongitude() { return longitude;}
 
     //setter method for rat report.
-    public void setUniqueKey(String uniqueKey) {
+    public void setUniqueKey(int uniqueKey) {
         this.uniqueKey = uniqueKey;
     }
 
