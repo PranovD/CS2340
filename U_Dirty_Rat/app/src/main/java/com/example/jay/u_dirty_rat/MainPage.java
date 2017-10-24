@@ -10,10 +10,11 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
-import android.widget.Spinner;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -23,6 +24,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+import static java.lang.Double.parseDouble;
 import static java.lang.Integer.parseInt;
 
 
@@ -33,6 +35,7 @@ public class MainPage extends AppCompatActivity {
     private static final String TAG = "MainActivity";
     public static Rat selected;
     public static int mostRecent;
+    private DatabaseReference reports;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,6 +74,13 @@ public class MainPage extends AppCompatActivity {
         //loading in CSV file as an array list of rat class objects.
 
         List database = new ArrayList();
+        //json version
+        reports = FirebaseDatabase.getInstance().getReference();
+
+
+
+
+        //csv version
         InputStream inputStream = getResources().openRawResource(R.raw.rat_sightings);
         BufferedReader reader = new BufferedReader
                 (new InputStreamReader(inputStream));
@@ -81,12 +91,12 @@ public class MainPage extends AppCompatActivity {
                 Rat report = new Rat(parseInt(pieces[0]),
                         pieces[1],
                         pieces[2],
-                        pieces[3],
+                        parseInt(pieces[3]),
                         pieces[4],
                         pieces[5],
                         pieces[6],
-                        pieces[7],
-                        pieces[8]); //create rat class object (report).
+                        parseDouble(pieces[7]),
+                        parseDouble(pieces[8])); //create rat class object (report).
                 database.add(report); //adding object to the database(arraylist).
         }
         } catch (IOException e) {
