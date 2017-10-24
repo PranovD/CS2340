@@ -35,7 +35,7 @@ public class MainPage extends AppCompatActivity {
     private static final String TAG = "MainActivity";
     public static Rat selected;
     public static int mostRecent;
-    DatabaseReference reports;
+    // public DatabaseReference reports;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -75,7 +75,7 @@ public class MainPage extends AppCompatActivity {
 
         List database = new ArrayList();
         //json version
-        reports = FirebaseDatabase.getInstance().getReference();
+        // reports = FirebaseDatabase.getInstance().getReference();
 
 
         //csv version
@@ -96,6 +96,7 @@ public class MainPage extends AppCompatActivity {
                         parseDouble(pieces[7]),
                         parseDouble(pieces[8])); //create rat class object (report).
                 database.add(report); //adding object to the database(arraylist).
+                //reports.child(pieces[1]).setValue(report);
         }
         } catch (IOException e) {
         }
@@ -119,7 +120,7 @@ public class MainPage extends AppCompatActivity {
 
         Button reportButton = (Button) findViewById(R.id.reportButton);
 
-        reportButton.setOnClickListener(new View.OnClickListener() {
+        /* reportButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 mostRecent = 0;
@@ -131,7 +132,8 @@ public class MainPage extends AppCompatActivity {
                 }
                 startActivity(new Intent(MainPage.this, ReportingActivity.class));
             }
-        });
+         });
+         */
     }
 
     @Override

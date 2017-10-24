@@ -17,6 +17,18 @@ public class Rat {
     private double latitude;
     private double longitude;
 
+    public Rat() {
+        this.uniqueKey = 0;
+        this.date = "TBD";
+        this.locationType = "TBD";
+        this.incidentZip = 0;
+        this.incidentAddress = "TBD";
+        this.city = "TBD";
+        this.borough = "TBD";
+        this.latitude = 0.0;
+        this.longitude = 0.0;
+    }
+
 
     public Rat(int Unique_Key,String Date, String Location_Type,int Incident_Zip,String Incident_Address,
                String City,String Borough,double Latitude,double Longitude) {
