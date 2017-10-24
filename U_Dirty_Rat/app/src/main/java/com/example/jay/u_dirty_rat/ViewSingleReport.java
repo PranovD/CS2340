@@ -37,8 +37,8 @@ public class ViewSingleReport extends AppCompatActivity {
         content5.setText(selected.getIncidentAddress());
         content6.setText(selected.getCity());
         content7.setText(selected.getBorough());
-        content8.setText(selected.getLatitude());
-        content9.setText(selected.getLongitude());
+        content8.setText(String.valueOf(selected.getLatitude()));
+        content9.setText(String.valueOf(selected.getLongitude()));
 
         Button backButton = (Button) findViewById(R.id.backButton);
         backButton.setOnClickListener(new View.OnClickListener() {

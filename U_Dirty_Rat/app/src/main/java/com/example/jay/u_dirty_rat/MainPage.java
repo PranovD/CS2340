@@ -35,7 +35,7 @@ public class MainPage extends AppCompatActivity {
     private static final String TAG = "MainActivity";
     public static Rat selected;
     public static int mostRecent;
-    private DatabaseReference reports;
+    DatabaseReference reports;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -76,8 +76,7 @@ public class MainPage extends AppCompatActivity {
         List database = new ArrayList();
         //json version
         reports = FirebaseDatabase.getInstance().getReference();
-
-
+        reports.removeValue();
 
 
         //csv version
