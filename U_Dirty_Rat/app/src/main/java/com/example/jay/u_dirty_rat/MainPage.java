@@ -21,12 +21,14 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
+<<<<<<< HEAD
 import static java.lang.Double.parseDouble;
 import static java.lang.Integer.parseInt;
 
+=======
+>>>>>>> parent of 4c3d590... Merge branch 'master' of https://github.com/PranovD/CS2340
 
 public class MainPage extends AppCompatActivity {
 
@@ -34,8 +36,11 @@ public class MainPage extends AppCompatActivity {
     private FirebaseAuth.AuthStateListener mAuthListener;
     private static final String TAG = "MainActivity";
     public static Rat selected;
+<<<<<<< HEAD
     public static int mostRecent;
     // public DatabaseReference reports;
+=======
+>>>>>>> parent of 4c3d590... Merge branch 'master' of https://github.com/PranovD/CS2340
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,7 +71,6 @@ public class MainPage extends AppCompatActivity {
         logOutButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                mAuth.signOut();
                 startActivity(new Intent(MainPage.this, WelcomeScreen.class));
             }
         });
@@ -84,24 +88,30 @@ public class MainPage extends AppCompatActivity {
                 (new InputStreamReader(inputStream));
         try {
             String rawreport;
-            while((rawreport = reader.readLine()) != null) { //while there is a report,
+            while((rawreport = reader.readLine()) != null) {
                 String[] pieces = rawreport.split(",",-1);
-                Rat report = new Rat(parseInt(pieces[0]),
+                Rat report = new Rat(pieces[0],
                         pieces[1],
                         pieces[2],
                         parseInt(pieces[3]),
                         pieces[4],
                         pieces[5],
                         pieces[6],
+<<<<<<< HEAD
                         parseDouble(pieces[7]),
                         parseDouble(pieces[8])); //create rat class object (report).
                 database.add(report); //adding object to the database(arraylist).
                 //reports.child(pieces[1]).setValue(report);
+=======
+                        pieces[7],
+                        pieces[8]);
+                database.add(report);
+>>>>>>> parent of 4c3d590... Merge branch 'master' of https://github.com/PranovD/CS2340
         }
         } catch (IOException e) {
         }
-
-        //display reports by using database and implementing list view widget.
+        System.out.println("FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF");
+        System.out.print(database.get(1).toString());
         ListView recentList = (ListView) findViewById(R.id.recentList);
         ArrayAdapter<Rat> arrayAdapter = new ArrayAdapter<>(this,
                 android.R.layout.simple_list_item_1, android.R.id.text1, database);
@@ -112,11 +122,11 @@ public class MainPage extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 int position = i;
-                //create selected report as a static variable so that I can use this on view page.
                 selected = (Rat) recentList.getItemAtPosition(position);
                 startActivity(new Intent(MainPage.this, ViewSingleReport.class));
             }
         });
+<<<<<<< HEAD
 
         Button reportButton = (Button) findViewById(R.id.reportButton);
 
@@ -134,6 +144,8 @@ public class MainPage extends AppCompatActivity {
             }
          });
          */
+=======
+>>>>>>> parent of 4c3d590... Merge branch 'master' of https://github.com/PranovD/CS2340
     }
 
     @Override

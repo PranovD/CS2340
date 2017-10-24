@@ -34,8 +34,7 @@
             android:name=".MainPage"
             android:label="@string/title_activity_main_page"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".ViewSingleReport" />
-        <activity android:name=".ReportingActivity"></activity>
+        <activity android:name=".ViewSingleReport"></activity>
     </application>
 
 </manifest>
