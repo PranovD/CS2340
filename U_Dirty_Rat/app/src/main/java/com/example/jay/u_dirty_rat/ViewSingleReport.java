@@ -16,6 +16,8 @@ public class ViewSingleReport extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_single_report);
 
+        //create test view variables for each content.
+
         TextView content1 = (TextView) findViewById(R.id.uniqueContent);
         TextView content2 = (TextView) findViewById(R.id.dateContent);
         TextView content3 = (TextView) findViewById(R.id.locationTypeContent);
@@ -26,6 +28,8 @@ public class ViewSingleReport extends AppCompatActivity {
         TextView content8 = (TextView) findViewById(R.id.latitudeContent);
         TextView content9 = (TextView) findViewById(R.id.longitudeContent);
 
+        //assign attribute of report to the text.
+        
         content1.setText(selected.getUniqueKey());
         content2.setText(selected.getDate());
         content3.setText(selected.getLocationType());

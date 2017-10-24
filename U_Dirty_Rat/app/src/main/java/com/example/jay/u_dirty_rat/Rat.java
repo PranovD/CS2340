@@ -3,11 +3,11 @@ package com.example.jay.u_dirty_rat;
 /**
  * Created by jw_chung on 10/5/17.
  * this class will allow us to handle
- * each rat report as a single object.
+ * each rat report as a single object. (cluster of strings)
  */
 
 public class Rat {
-    private String uniqueKey;
+    private int uniqueKey;
     private String date;
     private String locationType;
     private int incidentZip;
@@ -30,13 +30,8 @@ public class Rat {
     }
 
 
-<<<<<<< HEAD
     public Rat(int Unique_Key,String Date, String Location_Type,int Incident_Zip,String Incident_Address,
                String City,String Borough,double Latitude,double Longitude) {
-=======
-    public Rat(String Unique_Key,String Date, String Location_Type,String Incident_Zip,String Incident_Address,
-               String City,String Borough,String Latitude,String Longitude) {
->>>>>>> parent of 4c3d590... Merge branch 'master' of https://github.com/PranovD/CS2340
         this.uniqueKey = Unique_Key;
         this.date = Date;
         this.locationType = Location_Type;
@@ -49,9 +44,7 @@ public class Rat {
     }
 
     //getter method for rat report.
-    public String getUniqueKey() {
-        return uniqueKey;
-    }
+    public int getUniqueKey() { return uniqueKey; }
 
     public String getDate() {
         return date;
@@ -74,7 +67,7 @@ public class Rat {
     public double getLongitude() { return longitude;}
 
     //setter method for rat report.
-    public void setUniqueKey(String uniqueKey) {
+    public void setUniqueKey(int uniqueKey) {
         this.uniqueKey = uniqueKey;
     }
 
