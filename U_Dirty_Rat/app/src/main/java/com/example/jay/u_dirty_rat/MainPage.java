@@ -76,7 +76,6 @@ public class MainPage extends AppCompatActivity {
         List database = new ArrayList();
         //json version
         reports = FirebaseDatabase.getInstance().getReference();
-        reports.removeValue();
 
 
         //csv version
