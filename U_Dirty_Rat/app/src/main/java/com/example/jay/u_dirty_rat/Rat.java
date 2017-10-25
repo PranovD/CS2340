@@ -17,6 +17,7 @@ public class Rat {
     private String latitude;
     private String longitude;
 
+    //default constructor for future.
     public Rat() {
         this.uniqueKey = "-1";
         this.date = "TBD";
@@ -29,6 +30,7 @@ public class Rat {
         this.longitude = "0.0";
     }
 
+    //constructor with inputs
 
     public Rat(String Unique_Key,String Date, String Location_Type,String Incident_Zip,String Incident_Address,
                String City,String Borough,String Latitude,String Longitude) {
