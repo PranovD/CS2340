@@ -12,12 +12,19 @@ import android.widget.Button;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.util.List;
+import java.util.Stack;
+
 public class WelcomeScreen extends AppCompatActivity {
 
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
     private static final String TAG = "WelcomeScreen";
-
+    public static List database = new Stack();
 
 
     @Override
@@ -26,7 +33,28 @@ public class WelcomeScreen extends AppCompatActivity {
         setContentView(R.layout.activity_welcome_screen);
 
 
-
+        //csv version
+        InputStream inputStream = getResources().openRawResource(R.raw.rat_sightings);
+        BufferedReader reader = new BufferedReader
+                (new InputStreamReader(inputStream));
+        try {
+            String rawreport;
+            while((rawreport = reader.readLine()) != null) { //while there is a report,
+                String[] pieces = rawreport.split(",",-1);
+                Rat report = new Rat(pieces[0],
+                        pieces[1],
+                        pieces[2],
+                        pieces[3],
+                        pieces[4],
+                        pieces[5],
+                        pieces[6],
+                        pieces[7],
+                        pieces[8]); //create rat class object (report).
+                database.add(report); //adding object to the database(stack).
+                //reports.child(pieces[1]).setValue(report);
+            }
+        } catch (IOException e) {
+        }
         //creating button objects to use as action listener.
         Button loginButton = (Button) findViewById(R.id.LogInButton);
         Button registerButton = (Button) findViewById(R.id.RegisterButton); // for future.
@@ -40,7 +68,7 @@ public class WelcomeScreen extends AppCompatActivity {
                 if (user != null) {
                     // User is signed in
                     Log.d(TAG, "onAuthStateChanged:signed_in:" + user.getUid());
-                    startActivity(new Intent(WelcomeScreen.this, MainPage.class));
+                    //startActivity(new Intent(WelcomeScreen.this, MainPage.class));
                 } else {
                     // User is signed out
                     Log.d(TAG, "onAuthStateChanged:signed_out");

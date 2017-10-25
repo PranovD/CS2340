@@ -24,8 +24,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-import static java.lang.Double.parseDouble;
-import static java.lang.Integer.parseInt;
+import static com.example.jay.u_dirty_rat.WelcomeScreen.database;
 
 
 public class MainPage extends AppCompatActivity {
@@ -34,7 +33,7 @@ public class MainPage extends AppCompatActivity {
     private FirebaseAuth.AuthStateListener mAuthListener;
     private static final String TAG = "MainActivity";
     public static Rat selected;
-    public static int mostRecent;
+    public static int reportcounter = 0;
     // public DatabaseReference reports;
 
     @Override
@@ -72,34 +71,9 @@ public class MainPage extends AppCompatActivity {
         });
 
         //loading in CSV file as an array list of rat class objects.
-
-        List database = new ArrayList();
         //json version
         // reports = FirebaseDatabase.getInstance().getReference();
 
-
-        //csv version
-        InputStream inputStream = getResources().openRawResource(R.raw.rat_sightings);
-        BufferedReader reader = new BufferedReader
-                (new InputStreamReader(inputStream));
-        try {
-            String rawreport;
-            while((rawreport = reader.readLine()) != null) { //while there is a report,
-                String[] pieces = rawreport.split(",",-1);
-                Rat report = new Rat(pieces[0],
-                        pieces[1],
-                        pieces[2],
-                        pieces[3],
-                        pieces[4],
-                        pieces[5],
-                        pieces[6],
-                        pieces[7],
-                        pieces[8]); //create rat class object (report).
-                database.add(report); //adding object to the database(arraylist).
-                //reports.child(pieces[1]).setValue(report);
-        }
-        } catch (IOException e) {
-        }
 
         //display reports by using database and implementing list view widget.
         ListView recentList = (ListView) findViewById(R.id.recentList);
@@ -123,13 +97,7 @@ public class MainPage extends AppCompatActivity {
         reportButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                mostRecent = 0;
-                for (Iterator<Rat> i = database.iterator(); i.hasNext();) {
-                    Rat report = i.next();
-                    if(mostRecent == 0 || mostRecent < parseInt(report.getUniqueKey())) {
-                        mostRecent = parseInt(report.getUniqueKey());
-                    }
-                }
+
                 startActivity(new Intent(MainPage.this, ReportingActivity.class));
             }
          });
