@@ -86,15 +86,15 @@ public class MainPage extends AppCompatActivity {
             String rawreport;
             while((rawreport = reader.readLine()) != null) { //while there is a report,
                 String[] pieces = rawreport.split(",",-1);
-                Rat report = new Rat(parseInt(pieces[0]),
+                Rat report = new Rat(pieces[0],
                         pieces[1],
                         pieces[2],
-                        parseInt(pieces[3]),
+                        pieces[3],
                         pieces[4],
                         pieces[5],
                         pieces[6],
-                        parseDouble(pieces[7]),
-                        parseDouble(pieces[8])); //create rat class object (report).
+                        pieces[7],
+                        pieces[8]); //create rat class object (report).
                 database.add(report); //adding object to the database(arraylist).
                 //reports.child(pieces[1]).setValue(report);
         }
@@ -120,20 +120,20 @@ public class MainPage extends AppCompatActivity {
 
         Button reportButton = (Button) findViewById(R.id.reportButton);
 
-        /* reportButton.setOnClickListener(new View.OnClickListener() {
+        reportButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 mostRecent = 0;
                 for (Iterator<Rat> i = database.iterator(); i.hasNext();) {
                     Rat report = i.next();
-                    if(mostRecent == 0 || mostRecent < report.getUniqueKey()) {
-                        mostRecent = report.getUniqueKey();
+                    if(mostRecent == 0 || mostRecent < parseInt(report.getUniqueKey())) {
+                        mostRecent = parseInt(report.getUniqueKey());
                     }
                 }
                 startActivity(new Intent(MainPage.this, ReportingActivity.class));
             }
          });
-         */
+
     }
 
     @Override
