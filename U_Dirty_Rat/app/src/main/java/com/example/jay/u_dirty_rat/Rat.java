@@ -17,7 +17,9 @@ public class Rat {
     private String latitude;
     private String longitude;
 
-    //default constructor for future.
+    /**
+     * constructor
+     */
     public Rat() {
         this.uniqueKey = "-1";
         this.date = "TBD";
@@ -32,6 +34,18 @@ public class Rat {
 
     //constructor with inputs
 
+    /**
+     * constructor with string inputs
+     * @param Unique_Key
+     * @param Date
+     * @param Location_Type
+     * @param Incident_Zip
+     * @param Incident_Address
+     * @param City
+     * @param Borough
+     * @param Latitude
+     * @param Longitude
+     */
     public Rat(String Unique_Key,String Date, String Location_Type,String Incident_Zip,String Incident_Address,
                String City,String Borough,String Latitude,String Longitude) {
         this.uniqueKey = Unique_Key;
@@ -45,66 +59,140 @@ public class Rat {
         this.longitude = Longitude;
     }
 
-    //getter method for rat report.
+    /**
+     * getter method for unique key.
+     * @return unique key of the object
+     */
     public String getUniqueKey() { return uniqueKey; }
 
+    /**
+     * getter method for date.
+     * @return date of the object
+     */
     public String getDate() {
         return date;
     }
 
+    /**
+     * getter method for location type.
+     * @return location type of the object
+     */
     public String getLocationType() { return locationType;}
 
+    /**
+     * getter method for incident zip.
+     * @return incident zip of the object.
+     */
     public String getIncidentZip() { return  incidentZip;}
 
+    /**
+     * getter method for incident address.
+     * @return incident address of the object.
+     */
     public String getIncidentAddress() {
         return incidentAddress;
     }
 
+    /**
+     * getter method for city
+     * @return city of the object.
+     */
     public String getCity() { return city;}
 
+    /**
+     * getter method for borough
+     * @return borough of the object.
+     */
     public String getBorough() { return borough;}
 
+    /**
+     * getter method for latitude
+     * @return latitude of the object.
+     */
     public String getLatitude() { return latitude;}
 
+    /**
+     * getter method for longitude
+     * @return longitude of the object.
+     */
     public String getLongitude() { return longitude;}
 
-    //setter method for rat report.
+    /**
+     * setter method to change unique key
+     * @param uniqueKey : new unique key
+     */
     public void setUniqueKey(String uniqueKey) {
         this.uniqueKey = uniqueKey;
     }
 
+    /**
+     * setter method to change date
+     * @param date : new date
+     */
     public void setDate(String date) {
         this.date = date;
     }
 
+    /**
+     * setter method to change location type
+     * @param locationType : new location type
+     */
     public void setLocationType(String locationType) {
         this.locationType = locationType;
     }
 
+    /**
+     * setter method to change incident zip
+     * @param incidentZip : incident zip
+     */
     public void setIncidentZip(String incidentZip) {
         this.incidentZip = incidentZip;
     }
 
+    /**
+     * setter method to change incident address
+     * @param incidentAddress : incident address
+     */
     public void setIncidentAddress(String incidentAddress) {
         this.incidentAddress = incidentAddress;
     }
 
+    /**
+     * setter method to change city
+     * @param city : new city
+     */
     public void setCity(String city) {
         this.city = city;
     }
 
+    /**
+     * setter method to change latitude
+     * @param latitude : new latitude
+     */
     public void setLatitude(String latitude) {
         this.latitude = latitude;
     }
 
+    /**
+     * setter method to change longitude
+     * @param longitude : new longitude
+     */
     public void setLongitude(String longitude) {
         this.longitude = longitude;
     }
 
+    /**
+     * setter method to change borough
+     * @param borough : new borough
+     */
     public void setBorough(String borough) {
         this.borough = borough;
     }
 
+    /**
+     * toString to print
+     * @return string with unique key and date
+     */
     @Override
     public String toString() {
         return this.uniqueKey + ", " + this.date;
