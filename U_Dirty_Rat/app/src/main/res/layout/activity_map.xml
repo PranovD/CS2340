@@ -2,20 +2,36 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:weightSum="1">
-    <Button
-        android:id="@+id/start"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Start Date"
-        android:onClick="showDatePickerDialogStart"
-        android:layout_weight="0.96" />
+    android:weightSum="1"
+    android:orientation="vertical">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        android:orientation="vertical"
+        <Button
+            android:id="@+id/start"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Start Date"
+            android:onClick="showDatePickerDialogStart"
+            android:layout_toLeftOf="@+id/end"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true" />
 
-    <Button
-        android:id="@+id/end"
-        android:layout_width="186dp"
-        android:layout_height="wrap_content"
-        android:onClick="showDatePickerDialogEnd"
-        android:text="End Date" />
+        <Button
+            android:id="@+id/end"
+            android:layout_width="186dp"
+            android:layout_height="wrap_content"
+            android:onClick="showDatePickerDialogEnd"
+            android:text="End Date"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentRight="true"/>
+        </LinearLayout>
+
+    <fragment
+        android:id="@+id/map"
+        android:name="com.google.android.gms.maps.MapFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 
 </LinearLayout>

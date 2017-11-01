@@ -16,7 +16,12 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.ListView;
 import android.app.DialogFragment;
+import android.widget.Toast;
 
+
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.MapFragment;
+import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
@@ -30,15 +35,15 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import java.util.Stack;
-
 import static com.example.jay.u_dirty_rat.WelcomeScreen.database;
 
 
 
-public class MapPage extends AppCompatActivity {
+public class MapPage extends AppCompatActivity implements OnMapReadyCallback {
 
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
+    private GoogleMap map;
     private static final String TAG = "MapActivity";
     public static Rat selected;
     public static int reportcounter = 0;
@@ -96,7 +101,6 @@ public class MapPage extends AppCompatActivity {
             Log.d(TAG, "DatePicker" + String.valueOf(year) + String.valueOf(month) + String.valueOf(day));
         }
 
-
     }
 
     public static class StartDatePickerFragment extends DatePickerFragment{
@@ -147,6 +151,10 @@ public class MapPage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_map);
 
+        MapFragment mapFragment = (MapFragment) getFragmentManager().findFragmentById(R.id.map);
+
+        mapFragment.getMapAsync(this);
+
         //Firebase Checking if user is already logged in and track log in status
         mAuthListener = new FirebaseAuth.AuthStateListener() {
             @Override
@@ -175,7 +183,6 @@ public class MapPage extends AppCompatActivity {
         mAuth.addAuthStateListener(mAuthListener);
     }
 
-
     @Override
     public void onStop() {
         super.onStop();
@@ -184,6 +191,10 @@ public class MapPage extends AppCompatActivity {
         }
     }
 
+    @Override
+    public void onMapReady(GoogleMap googleMap) {
+        map = googleMap;
+    }
 
 }
 
