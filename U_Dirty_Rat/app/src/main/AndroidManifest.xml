@@ -36,6 +36,7 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".ViewSingleReport" />
         <activity android:name=".ReportingActivity"></activity>
+        <activity android:name=".MapPage"></activity>
     </application>
 
 </manifest>

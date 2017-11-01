@@ -86,6 +86,8 @@ public class MainPage extends AppCompatActivity {
 
         Button reportButton = (Button) findViewById(R.id.reportButton);
 
+        Button mapButton = (Button) findViewById(R.id.mapButton);
+
         reportButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -93,6 +95,14 @@ public class MainPage extends AppCompatActivity {
                 startActivity(new Intent(MainPage.this, ReportingActivity.class));
             }
          });
+
+        mapButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                startActivity(new Intent(MainPage.this, MapPage.class));
+            }
+        });
 
     }
 
