@@ -22,6 +22,7 @@ import android.widget.Toast;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapFragment;
 import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
@@ -43,7 +44,7 @@ public class MapPage extends AppCompatActivity implements OnMapReadyCallback {
 
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
-    private GoogleMap map;
+    private static GoogleMap map;
     private static final String TAG = "MapActivity";
     public static Rat selected;
     public static int reportcounter = 0;
@@ -71,6 +72,7 @@ public class MapPage extends AppCompatActivity implements OnMapReadyCallback {
                 Log.d(TAG,String.valueOf(endInt)+"End Date: "+ endFilter.toString());
                 if (!(formatedDate.compareTo(endFilter) > 0 || formatedDate.compareTo(startFilter) < 0)) {
                     filteredDatabase.add(rat);
+                    // map.addMarker(new MarkerOptions().position(rat.getLatitude(), rat.getLongitude()))
                 }
             } catch (ParseException e) {
                 Log.d(TAG,"Error parsing date: "+ e.toString());
@@ -172,9 +174,6 @@ public class MapPage extends AppCompatActivity implements OnMapReadyCallback {
             }
         };
         mAuth = FirebaseAuth.getInstance();
-
-
-
 
     }
 
