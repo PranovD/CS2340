@@ -43,21 +43,26 @@ public class MapPage extends AppCompatActivity {
     public static Rat selected;
     public static int reportcounter = 0;
     public static int startInt = 19690720;
-    public static int endInt = 20201212;
+    public static int endInt = 20171031;
     public static List filteredDatabase = new Stack();
     // public DatabaseReference reports;
 
     public static void filterDB() {
         for(int i = 0; i < database.size(); i++) {
             Rat rat = (Rat) database.get(i);
+            Log.d(TAG, rat.toString());
             String date = rat.getDate();
+
             SimpleDateFormat formatRat = new SimpleDateFormat("dd/MM/yy");
             SimpleDateFormat formatFilter = new SimpleDateFormat("yyyyMMdd");
             try {
 
                 Date formatedDate = formatRat.parse(date);
                 Date startFilter = formatFilter.parse(String.valueOf(startInt));
+                Log.d(TAG,"Start Date: "+ startFilter.toString());
                 Date endFilter = formatFilter.parse(String.valueOf(endInt));
+                Log.d(TAG,"Date: "+ formatedDate.toString());
+                Log.d(TAG,"End Date: "+ endFilter.toString());
                 if (!(formatedDate.compareTo(endFilter) > 0 || formatedDate.compareTo(startFilter) < 0)) {
                     filteredDatabase.add(rat);
                 }
@@ -159,29 +164,6 @@ public class MapPage extends AppCompatActivity {
         };
         mAuth = FirebaseAuth.getInstance();
 
-
-
-        //loading in CSV file as an array list of rat class objects.
-        //json version
-        // reports = FirebaseDatabase.getInstance().getReference();
-
-
-//        //display reports by using database and implementing list view widget.
-//        ListView recentList = (ListView) findViewById(R.id.recentList);
-//        ArrayAdapter<Rat> arrayAdapter = new ArrayAdapter<>(this,
-//                android.R.layout.simple_list_item_1, android.R.id.text1, database);
-//
-//        recentList.setAdapter(arrayAdapter);
-//
-//        recentList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-//            @Override
-//            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-//                int position = i;
-//                //create selected report as a static variable so that I can use this on view page.
-//                selected = (Rat) recentList.getItemAtPosition(position);
-//                startActivity(new Intent(MapPage.this, ViewSingleReport.class));
-//            }
-//        });
 
 
 
