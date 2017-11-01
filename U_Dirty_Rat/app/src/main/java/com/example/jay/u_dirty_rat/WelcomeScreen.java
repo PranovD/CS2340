@@ -57,7 +57,7 @@ public class WelcomeScreen extends AppCompatActivity {
         }
         //creating button objects to use as action listener.
         Button loginButton = (Button) findViewById(R.id.LogInButton);
-        Button registerButton = (Button) findViewById(R.id.RegisterButton); // for future.
+        Button registerButton = (Button) findViewById(R.id.RegisterButton);
         Log.d(TAG, "Created Welcome Screen");
         mAuth = FirebaseAuth.getInstance();
         //Firebase Checking if user is already logged in and track log in status
@@ -111,9 +111,5 @@ public class WelcomeScreen extends AppCompatActivity {
             mAuth.removeAuthStateListener(mAuthListener);
         }
     }
-
-
-
-
 
 }

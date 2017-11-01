@@ -37,6 +37,12 @@
         <activity android:name=".ViewSingleReport" />
         <activity android:name=".ReportingActivity"></activity>
         <activity android:name=".MapPage"></activity>
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyAuOPIOlDlMAPA5wjSbi_cd6jZHfS-k4v0" />
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
     </application>
 
 </manifest>
