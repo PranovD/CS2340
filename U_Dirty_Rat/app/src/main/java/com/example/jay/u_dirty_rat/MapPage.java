@@ -56,15 +56,39 @@ public class MapPage extends AppCompatActivity {
 
         public void onDateSet(DatePicker view, int year, int month, int day) {
             // Do something with the date chosen by the user
+
+            Log.d(TAG, "DatePicker" + String.valueOf(year) + String.valueOf(month) + String.valueOf(day));
         }
 
 
     }
 
-    public void showDatePickerDialog(View v) {
+    public static class StartDatePickerFragment extends DatePickerFragment{
+        @Override
+        public void onDateSet(DatePicker view, int year, int month, int day) {
+            super.onDateSet(view, year, month, day);
+            Log.d(TAG, "StartDatePicker" + String.valueOf(year) + String.valueOf(month) + String.valueOf(day));
+        }
+    }
+
+    public static class EndDatePickerFragment extends DatePickerFragment{
+        @Override
+        public void onDateSet(DatePicker view, int year, int month, int day) {
+            super.onDateSet(view, year, month, day);
+            Log.d(TAG, "EndDatePicker" + String.valueOf(year) + String.valueOf(month) + String.valueOf(day));
+        }
+    }
+
+    public void showDatePickerDialogStart(View v) {
         FragmentManager fm = this.getFragmentManager();
-        DialogFragment newFragment = new DatePickerFragment();
-        newFragment.show(fm, "datePicker");
+        DialogFragment newFragment = new StartDatePickerFragment();
+        newFragment.show(fm, "startDatePicker");
+    }
+
+    public void showDatePickerDialogEnd(View v) {
+        FragmentManager fm = this.getFragmentManager();
+        DialogFragment newFragment = new EndDatePickerFragment();
+        newFragment.show(fm, "endDatePicker");
     }
 
     @Override
