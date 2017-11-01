@@ -23,7 +23,13 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
+import java.util.List;
+import java.util.Stack;
 
 import static com.example.jay.u_dirty_rat.WelcomeScreen.database;
 
@@ -36,7 +42,32 @@ public class MapPage extends AppCompatActivity {
     private static final String TAG = "MapActivity";
     public static Rat selected;
     public static int reportcounter = 0;
+    public static int startInt = 19690720;
+    public static int endInt = 20201212;
+    public static List filteredDatabase = new Stack();
     // public DatabaseReference reports;
+
+    public static void filterDB() {
+        for(int i = 0; i < database.size(); i++) {
+            Rat rat = (Rat) database.get(i);
+            String date = rat.getDate();
+            SimpleDateFormat formatRat = new SimpleDateFormat("dd/MM/yy");
+            SimpleDateFormat formatFilter = new SimpleDateFormat("yyyyMMdd");
+            try {
+
+                Date formatedDate = formatRat.parse(date);
+                Date startFilter = formatFilter.parse(String.valueOf(startInt));
+                Date endFilter = formatFilter.parse(String.valueOf(endInt));
+                if (!(formatedDate.compareTo(endFilter) > 0 || formatedDate.compareTo(startFilter) < 0)) {
+                    filteredDatabase.add(rat);
+                }
+            } catch (ParseException e) {
+                Log.d(TAG,"Error parsing date: "+ e.toString());
+            }
+
+        }
+        Log.d(TAG,"Database: " + String.valueOf(database.size()) + " Filtered Database: " + String.valueOf(filteredDatabase.size()));
+    }
 
     //Date Picker
     public static class DatePickerFragment extends DialogFragment
@@ -65,9 +96,22 @@ public class MapPage extends AppCompatActivity {
 
     public static class StartDatePickerFragment extends DatePickerFragment{
         @Override
+        public Dialog onCreateDialog(Bundle savedInstanceState) {
+            // Use the current date as the default date in the picker
+            final Calendar c = Calendar.getInstance();
+            int year = 1969;
+            int month = 7;
+            int day = 20;
+
+            // Create a new instance of DatePickerDialog and return it
+            return new DatePickerDialog(getActivity(), this, year, month, day);
+        }
+        @Override
         public void onDateSet(DatePicker view, int year, int month, int day) {
             super.onDateSet(view, year, month, day);
-            Log.d(TAG, "StartDatePicker" + String.valueOf(year) + String.valueOf(month) + String.valueOf(day));
+            startInt = year*10000000 + month*1000 + day;
+            Log.d(TAG, "StartDatePicker" + String.valueOf(startInt));
+            filterDB();
         }
     }
 
@@ -75,7 +119,9 @@ public class MapPage extends AppCompatActivity {
         @Override
         public void onDateSet(DatePicker view, int year, int month, int day) {
             super.onDateSet(view, year, month, day);
-            Log.d(TAG, "EndDatePicker" + String.valueOf(year) + String.valueOf(month) + String.valueOf(day));
+            endInt = year*10000000 + month*1000 + day;
+            Log.d(TAG, "EndDatePicker" + String.valueOf(endInt));
+            filterDB();
         }
     }
 
