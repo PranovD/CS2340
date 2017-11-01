@@ -53,6 +53,7 @@ public class MapPage extends AppCompatActivity implements OnMapReadyCallback {
     // public DatabaseReference reports;
 
     public static void filterDB() {
+        filteredDatabase.clear();
         for(int i = 0; i < database.size(); i++) {
             Rat rat = (Rat) database.get(i);
             Log.d(TAG, rat.toString());
@@ -64,10 +65,10 @@ public class MapPage extends AppCompatActivity implements OnMapReadyCallback {
 
                 Date formatedDate = formatRat.parse(date);
                 Date startFilter = formatFilter.parse(String.valueOf(startInt));
-                Log.d(TAG,"Start Date: "+ startFilter.toString());
+                Log.d(TAG,String.valueOf(startInt)+ "Start Date: "+ startFilter.toString());
                 Date endFilter = formatFilter.parse(String.valueOf(endInt));
                 Log.d(TAG,"Date: "+ formatedDate.toString());
-                Log.d(TAG,"End Date: "+ endFilter.toString());
+                Log.d(TAG,String.valueOf(endInt)+"End Date: "+ endFilter.toString());
                 if (!(formatedDate.compareTo(endFilter) > 0 || formatedDate.compareTo(startFilter) < 0)) {
                     filteredDatabase.add(rat);
                 }
@@ -118,7 +119,7 @@ public class MapPage extends AppCompatActivity implements OnMapReadyCallback {
         @Override
         public void onDateSet(DatePicker view, int year, int month, int day) {
             super.onDateSet(view, year, month, day);
-            startInt = year*10000000 + month*1000 + day;
+            startInt = year*10000 + month*100 + day;
             Log.d(TAG, "StartDatePicker" + String.valueOf(startInt));
             filterDB();
         }
@@ -128,7 +129,7 @@ public class MapPage extends AppCompatActivity implements OnMapReadyCallback {
         @Override
         public void onDateSet(DatePicker view, int year, int month, int day) {
             super.onDateSet(view, year, month, day);
-            endInt = year*10000000 + month*1000 + day;
+            endInt = year*10000 + month*100 + day;
             Log.d(TAG, "EndDatePicker" + String.valueOf(endInt));
             filterDB();
         }

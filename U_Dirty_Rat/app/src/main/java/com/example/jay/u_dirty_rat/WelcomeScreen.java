@@ -38,8 +38,9 @@ public class WelcomeScreen extends AppCompatActivity {
         BufferedReader reader = new BufferedReader
                 (new InputStreamReader(inputStream));
         try {
-            String rawreport;
-            while((rawreport = reader.readLine()) != null) { //while there is a report,
+            String rawreport = reader.readLine();
+            int counter = 0;
+            while(rawreport != null && counter < 1000) { //while there is a report,
                 String[] pieces = rawreport.split(",",-1);
                 Rat report = new Rat(pieces[0],
                         pieces[1],
@@ -52,6 +53,8 @@ public class WelcomeScreen extends AppCompatActivity {
                         pieces[8]); //create rat class object (report).
                 database.add(report); //adding object to the database(stack).
                 //reports.child(pieces[1]).setValue(report);
+                counter++;
+                rawreport = reader.readLine();
             }
         } catch (IOException e) {
         }
