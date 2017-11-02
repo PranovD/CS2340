@@ -19,9 +19,11 @@ import android.app.DialogFragment;
 import android.widget.Toast;
 
 
+import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapFragment;
 import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -73,7 +75,13 @@ public class MapPage extends AppCompatActivity implements OnMapReadyCallback {
                 Log.d(TAG,String.valueOf(endInt)+"End Date: "+ endFilter.toString());
                 if (!(formatedDate.compareTo(endFilter) > 0 || formatedDate.compareTo(startFilter) < 0)) {
                     filteredDatabase.add(rat);
-                    // map.addMarker(new MarkerOptions().position(rat.getLatitude(), rat.getLongitude()))
+                    if (rat != null && !rat.getLatitude().equals("") && !rat.getLongitude().equals("")) {
+                        map.addMarker(new MarkerOptions()
+                                .position(new LatLng(Double.parseDouble(rat.getLatitude()), Double.parseDouble(rat.getLongitude())))
+                                .title(rat.getUniqueKey())
+                                .snippet(rat.getDate()));
+                    }
+
                 }
             } catch (ParseException e) {
                 Log.d(TAG,"Error parsing date: "+ e.toString());
@@ -195,6 +203,8 @@ public class MapPage extends AppCompatActivity implements OnMapReadyCallback {
     @Override
     public void onMapReady(GoogleMap googleMap) {
         map = googleMap;
+        map.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(40.7128, -74.0060), 10.0f));
+        map.getUiSettings().setZoomControlsEnabled(true);
         Log.d(TAG, "Google Maps" + map.toString());
         filterDB();
     }
