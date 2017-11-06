@@ -12,6 +12,8 @@ import java.util.List;
 
 import static com.example.jay.u_dirty_rat.MainPage.reportcounter;
 import static com.example.jay.u_dirty_rat.WelcomeScreen.database;
+import static java.lang.Double.parseDouble;
+import static java.lang.Integer.parseInt;
 
 public class ReportingActivity extends AppCompatActivity {
 
@@ -38,15 +40,15 @@ public class ReportingActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 addThis = new Rat(
-                        String.valueOf(reportcounter),
+                        reportcounter,
                         date.getText().toString(),
                         locationType.getText().toString(),
-                        incidentZip.getText().toString(),
+                        parseInt(incidentZip.getText().toString()),
                         incidentAddress.getText().toString(),
                         city.getText().toString(),
                         borough.getText().toString(),
-                        latitude.getText().toString(),
-                        longitude.getText().toString()
+                        parseDouble(latitude.getText().toString()),
+                        parseDouble(longitude.getText().toString())
                 );
                 database.add(1,addThis);
                 reportcounter++;
