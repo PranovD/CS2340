@@ -7,29 +7,30 @@ package com.example.jay.u_dirty_rat;
  */
 
 public class Rat {
-    private String uniqueKey;
+    private int uniqueKey;
     private String date;
     private String locationType;
-    private String incidentZip;
+    private int incidentZip;
     private String incidentAddress;
     private String city;
     private String borough;
-    private String latitude;
-    private String longitude;
+    private double latitude;
+    private double longitude;
 
     /**
-     * constructor
+     * default constructor to
+     * get the data from firebase.
      */
     public Rat() {
-        this.uniqueKey = "-1";
+        this.uniqueKey = -1;
         this.date = "TBD";
         this.locationType = "TBD";
-        this.incidentZip = "00000";
+        this.incidentZip = 00000;
         this.incidentAddress = "TBD";
         this.city = "TBD";
         this.borough = "TBD";
-        this.latitude = "0.0";
-        this.longitude = "0.0";
+        this.latitude = 0.0;
+        this.longitude = 0.0;
     }
 
     //constructor with inputs
@@ -46,8 +47,8 @@ public class Rat {
      * @param Latitude
      * @param Longitude
      */
-    public Rat(String Unique_Key,String Date, String Location_Type,String Incident_Zip,String Incident_Address,
-               String City,String Borough,String Latitude,String Longitude) {
+    public Rat(int Unique_Key,String Date, String Location_Type,int Incident_Zip,String Incident_Address,
+               String City,String Borough,double Latitude,double Longitude) {
         this.uniqueKey = Unique_Key;
         this.date = Date;
         this.locationType = Location_Type;
@@ -63,7 +64,7 @@ public class Rat {
      * getter method for unique key.
      * @return unique key of the object
      */
-    public String getUniqueKey() { return uniqueKey; }
+    public int getUniqueKey() { return uniqueKey; }
 
     /**
      * getter method for date.
@@ -83,7 +84,7 @@ public class Rat {
      * getter method for incident zip.
      * @return incident zip of the object.
      */
-    public String getIncidentZip() { return  incidentZip;}
+    public int getIncidentZip() { return  incidentZip;}
 
     /**
      * getter method for incident address.
@@ -109,19 +110,19 @@ public class Rat {
      * getter method for latitude
      * @return latitude of the object.
      */
-    public String getLatitude() { return latitude;}
+    public double getLatitude() { return latitude;}
 
     /**
      * getter method for longitude
      * @return longitude of the object.
      */
-    public String getLongitude() { return longitude;}
+    public double getLongitude() { return longitude;}
 
     /**
      * setter method to change unique key
      * @param uniqueKey : new unique key
      */
-    public void setUniqueKey(String uniqueKey) {
+    public void setUniqueKey(int uniqueKey) {
         this.uniqueKey = uniqueKey;
     }
 
@@ -145,7 +146,7 @@ public class Rat {
      * setter method to change incident zip
      * @param incidentZip : incident zip
      */
-    public void setIncidentZip(String incidentZip) {
+    public void setIncidentZip(int incidentZip) {
         this.incidentZip = incidentZip;
     }
 
@@ -169,7 +170,7 @@ public class Rat {
      * setter method to change latitude
      * @param latitude : new latitude
      */
-    public void setLatitude(String latitude) {
+    public void setLatitude(double latitude) {
         this.latitude = latitude;
     }
 
@@ -177,7 +178,7 @@ public class Rat {
      * setter method to change longitude
      * @param longitude : new longitude
      */
-    public void setLongitude(String longitude) {
+    public void setLongitude(double longitude) {
         this.longitude = longitude;
     }
 
