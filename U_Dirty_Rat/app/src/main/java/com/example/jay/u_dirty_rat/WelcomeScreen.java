@@ -18,7 +18,8 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.List;
 import java.util.Stack;
-
+import static java.lang.Double.parseDouble;
+import static java.lang.Integer.parseInt;
 public class WelcomeScreen extends AppCompatActivity {
 
     private FirebaseAuth mAuth;
@@ -42,15 +43,15 @@ public class WelcomeScreen extends AppCompatActivity {
             int counter = 0;
             while(rawreport != null && counter < 1000) { //while there is a report,
                 String[] pieces = rawreport.split(",",-1);
-                Rat report = new Rat(pieces[0],
+                Rat report = new Rat(parseInt(pieces[0]),
                         pieces[1],
                         pieces[2],
-                        pieces[3],
+                        parseInt(pieces[3]),
                         pieces[4],
                         pieces[5],
                         pieces[6],
-                        pieces[7],
-                        pieces[8]); //create rat class object (report).
+                        parseDouble(pieces[7]),
+                        parseDouble(pieces[8])); //create rat class object (report).
                 database.add(report); //adding object to the database(stack).
                 //reports.child(pieces[1]).setValue(report);
                 counter++;
