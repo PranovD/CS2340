@@ -81,7 +81,6 @@ public class MapPage extends AppCompatActivity implements OnMapReadyCallback {
                                 .title(Integer.toString(rat.getUniqueKey()))
                                 .snippet(rat.getDate()));
                     }
-
                 }
             } catch (ParseException e) {
                 Log.d(TAG,"Error parsing date: "+ e.toString());
