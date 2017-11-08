@@ -44,6 +44,7 @@ public class WelcomeScreen extends AppCompatActivity {
             while(rawreport != null && counter < 1000) { //while there is a report,
                 String[] pieces = rawreport.split(",",-1);
                 try {
+
                     Rat report = new Rat(parseInt(pieces[0]),
                             pieces[1],
                             pieces[2],
@@ -59,6 +60,8 @@ public class WelcomeScreen extends AppCompatActivity {
 
                 }
                 //reports.child(pieces[1]).setValue(report);
+          //reports.child(pieces[1]).setValue(report);
+
                 counter++;
                 rawreport = reader.readLine();
             }
