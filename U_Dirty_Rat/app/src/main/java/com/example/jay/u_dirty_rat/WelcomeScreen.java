@@ -43,17 +43,27 @@ public class WelcomeScreen extends AppCompatActivity {
             int counter = 0;
             while(rawreport != null && counter < 1000) { //while there is a report,
                 String[] pieces = rawreport.split(",",-1);
-                Rat report = new Rat(parseInt(pieces[0]),
-                        pieces[1],
-                        pieces[2],
-                        parseInt(pieces[3]),
-                        pieces[4],
-                        pieces[5],
-                        pieces[6],
-                        parseDouble(pieces[7]),
-                        parseDouble(pieces[8])); //create rat class object (report).
-                database.add(report); //adding object to the database(stack).
-                //reports.child(pieces[1]).setValue(report);
+                if (!pieces[0].equals("")
+                        && !pieces[1].equals("")
+                        && !pieces[2].equals("")
+                        && !pieces[3].equals("")
+                        && !pieces[4].equals("")
+                        && !pieces[5].equals("")
+                        && !pieces[6].equals("")
+                        && !pieces[7].equals("")
+                        && !pieces[8].equals("")) {
+                    Rat report = new Rat(parseInt(pieces[0]),
+                            pieces[1],
+                            pieces[2],
+                            parseInt(pieces[3]),
+                            pieces[4],
+                            pieces[5],
+                            pieces[6],
+                            parseDouble(pieces[7]),
+                            parseDouble(pieces[8])); //create rat class object (report).
+                    database.add(report); //adding object to the database(stack).
+                }
+                    //reports.child(pieces[1]).setValue(report);
                 counter++;
                 rawreport = reader.readLine();
             }
