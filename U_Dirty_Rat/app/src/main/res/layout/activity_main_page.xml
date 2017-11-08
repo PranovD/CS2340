@@ -47,18 +47,16 @@
             android:layout_height="wrap_content"
             android:text="MAP"
             android:layout_alignParentBottom="true"
-            android:layout_alignRight="@+id/textView2"
-            android:layout_alignEnd="@+id/textView2" />
+            android:layout_toRightOf="@+id/filterButton"
+            android:layout_toEndOf="@+id/filterButton" />
 
         <Button
             android:id="@+id/reportButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
             android:layout_alignParentRight="true"
-            android:layout_alignTop="@+id/filterButton"
-            android:layout_marginEnd="60dp"
-            android:layout_marginRight="60dp"
+            android:layout_alignParentEnd="true"
             android:text="REPORT" />
 
         <ListView
@@ -69,6 +67,15 @@
             android:layout_alignParentEnd="true"
             android:layout_below="@+id/textView2"
             android:layout_above="@+id/filterButton" />
+
+        <Button
+            android:id="@+id/graphButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_toLeftOf="@+id/reportButton"
+            android:layout_toStartOf="@id/reportButton"
+            android:text="Graph" />
 
     </RelativeLayout>
 </android.support.design.widget.CoordinatorLayout>

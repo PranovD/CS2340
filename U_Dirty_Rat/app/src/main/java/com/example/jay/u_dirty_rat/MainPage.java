@@ -88,13 +88,15 @@ public class MainPage extends AppCompatActivity {
 
         Button mapButton = (Button) findViewById(R.id.mapButton);
 
+        Button graphButton = (Button) findViewById(R.id.graphButton);
+
         reportButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
                 startActivity(new Intent(MainPage.this, ReportingActivity.class));
             }
-         });
+        });
 
         mapButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -103,6 +105,15 @@ public class MainPage extends AppCompatActivity {
                 startActivity(new Intent(MainPage.this, MapPage.class));
             }
         });
+
+        graphButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                startActivity(new Intent(MainPage.this, GraphPage.class));
+            }
+        });
+
 
     }
 

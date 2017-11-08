@@ -35,8 +35,10 @@
             android:label="@string/title_activity_main_page"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".ViewSingleReport" />
-        <activity android:name=".ReportingActivity"></activity>
-        <activity android:name=".MapPage"></activity>
+        <activity android:name=".ReportingActivity" />
+        <activity android:name=".MapPage" />
+        <activity android:name=".GraphPage" />
+
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyAuOPIOlDlMAPA5wjSbi_cd6jZHfS-k4v0" />
