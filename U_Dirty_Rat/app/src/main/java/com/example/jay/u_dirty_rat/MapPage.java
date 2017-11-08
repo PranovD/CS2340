@@ -75,10 +75,10 @@ public class MapPage extends AppCompatActivity implements OnMapReadyCallback {
                 Log.d(TAG,String.valueOf(endInt)+"End Date: "+ endFilter.toString());
                 if (!(formatedDate.compareTo(endFilter) > 0 || formatedDate.compareTo(startFilter) < 0)) {
                     filteredDatabase.add(rat);
-                    if (rat != null && !rat.getLatitude().equals("") && !rat.getLongitude().equals("")) {
+                    if (rat != null) {
                         map.addMarker(new MarkerOptions()
-                                .position(new LatLng(Double.parseDouble(rat.getLatitude()), Double.parseDouble(rat.getLongitude())))
-                                .title(rat.getUniqueKey())
+                                .position(new LatLng(rat.getLatitude(), rat.getLongitude()))
+                                .title(Integer.toString(rat.getUniqueKey()))
                                 .snippet(rat.getDate()));
                     }
 
