@@ -41,7 +41,7 @@ public class WelcomeScreen extends AppCompatActivity {
         try {
             String rawreport = reader.readLine();
             int counter = 0;
-            while(rawreport != null && counter < 1000) { //while there is a report,
+            while(rawreport != null) { //while there is a report,
                 String[] pieces = rawreport.split(",",-1);
                 try {
 
@@ -62,7 +62,6 @@ public class WelcomeScreen extends AppCompatActivity {
                 //reports.child(pieces[1]).setValue(report);
           //reports.child(pieces[1]).setValue(report);
 
-                counter++;
                 rawreport = reader.readLine();
             }
         } catch (IOException e) {

@@ -18,47 +18,31 @@
             android:layout_height="400dp"
             android:id="@+id/graph" />
 
-        <TextView
-            android:id="@+id/textView6"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_below="@+id/graph"
-            android:layout_marginTop="15dp"
-            android:text="Type City" />
+
 
         <TextView
             android:id="@+id/textView7"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Type Year"
-            android:layout_alignParentBottom="true"
+            android:layout_alignBaseline="@+id/yearText"
+            android:layout_alignBottom="@+id/yearText"
             android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_marginBottom="22dp" />
+            android:layout_alignParentStart="true" />
 
         <EditText
             android:id="@+id/yearText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignLeft="@+id/cityText"
-            android:layout_alignStart="@+id/cityText"
-            android:layout_alignTop="@+id/textView7"
             android:ems="10"
             android:hint="YYYY"
-            android:inputType="textPersonName" />
-
-        <EditText
-            android:id="@+id/cityText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_above="@+id/textView7"
-            android:layout_toEndOf="@+id/textView7"
+            android:inputType="number"
+            android:layout_alignBaseline="@+id/updateButton"
+            android:layout_alignBottom="@+id/updateButton"
             android:layout_toRightOf="@+id/textView7"
-            android:ems="10"
-            android:hint="City"
-            android:inputType="textPersonName" />
+            android:layout_toEndOf="@+id/textView7" />
+
+
 
         <Button
             android:id="@+id/updateButton"

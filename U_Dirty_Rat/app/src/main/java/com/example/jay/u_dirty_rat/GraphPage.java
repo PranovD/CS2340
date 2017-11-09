@@ -3,6 +3,7 @@ package com.example.jay.u_dirty_rat;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -15,12 +16,15 @@ import com.jjoe64.graphview.series.LineGraphSeries;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import java.util.Iterator;
 import java.util.List;
 import java.util.concurrent.ConcurrentHashMap;
 
 import static com.example.jay.u_dirty_rat.WelcomeScreen.database;
 
 public class GraphPage extends AppCompatActivity {
+
+    BarGraphSeries<DataPoint> series;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,40 +34,46 @@ public class GraphPage extends AppCompatActivity {
 
         Button updateButton = (Button) findViewById(R.id.updateButton);
         Button backButton = (Button) findViewById(R.id.backButton);
-        String selectedYear = ((EditText) findViewById(R.id.yearText)).toString();
         GraphView graph = (GraphView) findViewById(R.id.graph);
-        BarGraphSeries<DataPoint> series = new BarGraphSeries<>();
 
 
         updateButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                HashMap<Integer,Integer> dataTable = new HashMap<>();
-                if(selectedYear.length() == 4) {
-                    for (Rat report : database) {
-                        String date = report.getDate();
-                        if (date.substring(5).equals(selectedYear)) { //yyyy
-                            int month = Integer.parseInt(date.substring(0,1)); //mm
-                            if(dataTable.containsKey(month)) {
-                                int count = dataTable.get(month);
-                                count ++;
-                                dataTable.put(month,count);
-                            } else {
-                                dataTable.put(month,1);
+                EditText raw = (EditText) findViewById(R.id.yearText);
+                String selectedYear = raw.getText().toString().substring(2,4);
+                int[] dataTable = new int[12];
+                if(selectedYear.length() == 2) {
+                    for(int i = 0; i < database.size(); i++) {
+                        Rat rat = (Rat) database.get(i);
+                        String date = rat.getDate();
+                        String[] pieces = date.split("/",-1);
+                        if (pieces.length == 3) {
+                            Log.i(pieces[2],"debug");
+                            if (pieces[2].substring(0,2).equals(selectedYear)) { //yyyy
+                                int month = Integer.parseInt(pieces[0]); //mm
+                                if(dataTable[month-1] != 0) {
+                                    int count = dataTable[month-1];
+                                    count ++;
+                                    dataTable[month-1] = count;
+                                } else {
+                                    dataTable[month - 1] = 1;
+                                }
                             }
                         }
                     }
-                    BarGraphSeries<DataPoint> series;
-                    DataPoint[] plot = new DataPoint[12];
-                    for (int i=1; i<=12; i++) {
-                        if(dataTable.containsKey(i)) {
-                            plot[i] = new DataPoint(i,dataTable.get(i));
-                        } else {
-                            plot[i] = new DataPoint(i,0);
-                        }
+                    DataPoint[] list = new DataPoint[12];
+                    for (int index= 0 ; index < dataTable.length; index++) {
+                        list[index] = new DataPoint(index+1, dataTable[index]);
                     }
-                    series = new BarGraphSeries(plot);
+                    series = new BarGraphSeries<DataPoint>(list);
                     graph.addSeries(series);
+                    graph.setTitle("Historical Sighting Report");
+                    graph.getViewport().setXAxisBoundsManual(true);
+                    graph.getViewport().setMinX(0);
+                    graph.getViewport().setMaxX(13);
+                    graph.getGridLabelRenderer().setHorizontalAxisTitle("month");
+                    graph.getGridLabelRenderer().setVerticalAxisTitle("Sightings");
                 }
 
             }
