@@ -61,25 +61,23 @@ public class MapPage extends AppCompatActivity implements OnMapReadyCallback {
         for(int i = 0; i < database.size(); i++) {
             Rat rat = (Rat) database.get(i);
             Log.d(TAG, rat.toString());
-            String date = rat.getDate();
+            Date date = rat.getDate();
 
-            SimpleDateFormat formatRat = new SimpleDateFormat("dd/MM/yy");
             SimpleDateFormat formatFilter = new SimpleDateFormat("yyyyMMdd");
             try {
 
-                Date formatedDate = formatRat.parse(date);
                 Date startFilter = formatFilter.parse(String.valueOf(startInt));
                 Log.d(TAG,String.valueOf(startInt)+ "Start Date: "+ startFilter.toString());
                 Date endFilter = formatFilter.parse(String.valueOf(endInt));
-                Log.d(TAG,"Date: "+ formatedDate.toString());
+                Log.d(TAG,"Date: "+ date.toString());
                 Log.d(TAG,String.valueOf(endInt)+"End Date: "+ endFilter.toString());
-                if (!(formatedDate.compareTo(endFilter) > 0 || formatedDate.compareTo(startFilter) < 0)) {
+                if (!(date.compareTo(endFilter) > 0 || date.compareTo(startFilter) < 0)) {
                     filteredDatabase.add(rat);
                     if (rat != null) {
                         map.addMarker(new MarkerOptions()
                                 .position(new LatLng(rat.getLatitude(), rat.getLongitude()))
                                 .title(Integer.toString(rat.getUniqueKey()))
-                                .snippet(rat.getDate()));
+                                .snippet(rat.getDate().toString()));
                     }
                 }
             } catch (ParseException e) {
