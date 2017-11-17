@@ -28,9 +28,8 @@ public class WelcomeScreen extends AppCompatActivity {
 
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
-    private static final String TAG = "WelcomeScreen";
     public static List<Rat> database = new Stack();
-
+    private static final String TAG = "WelcomeScreen";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,27 +52,25 @@ public class WelcomeScreen extends AppCompatActivity {
                     Date date = sourceFormat.parse(pieces[1]);
                     Rat report = new Rat(parseInt(pieces[0]),
                             date,
-                            pieces[2],
+                            Rat.LocationType.valueOf(pieces[2]),
                             parseInt(pieces[3]),
                             pieces[4],
                             pieces[5],
-                            pieces[6],
+                            Rat.Borough.valueOf(pieces[6]),
                             parseDouble(pieces[7]),
                             parseDouble(pieces[8])); //create rat class object (report).
                     database.add(report); //adding object to the database(stack).
                 }
                 catch (NumberFormatException nfe) {
-
+                    Log.d(TAG,"Number Format Error: "+ nfe.toString());
                 }
                 catch (ParseException e) {
-
+                    Log.d(TAG,"Error parsing date: "+ e.toString());
                 }
-                //reports.child(pieces[1]).setValue(report);
-          //reports.child(pieces[1]).setValue(report);
-
                 rawreport = reader.readLine();
             }
-        } catch (IOException e) {
+        } catch (IOException eio) {
+            Log.d(TAG,"Error Reading Input Stream: "+ eio.toString());
         }
         //creating button objects to use as action listener.
         Button loginButton = (Button) findViewById(R.id.LogInButton);
