@@ -14,6 +14,8 @@ import com.jjoe64.graphview.series.DataPoint;
 import com.jjoe64.graphview.series.LineGraphSeries;
 
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.HashMap;
 
 import java.util.Iterator;
@@ -46,21 +48,27 @@ public class GraphPage extends AppCompatActivity {
                 if(selectedYear.length() == 2) {
                     for(int i = 0; i < database.size(); i++) {
                         Rat rat = (Rat) database.get(i);
-                        String date = rat.getDate();
-                        String[] pieces = date.split("/",-1);
-                        if (pieces.length == 3) {
-                            Log.i(pieces[2],"debug");
-                            if (pieces[2].substring(0,2).equals(selectedYear)) { //yyyy
-                                int month = Integer.parseInt(pieces[0]); //mm
-                                if(dataTable[month-1] != 0) {
-                                    int count = dataTable[month-1];
+                        Date date = rat.getDate();
+                        Calendar cal = Calendar.getInstance();
+                        cal.setTime(date);  //use java.util.Date object as arguement
+                        // get the value of all the calendar date fields.
+                        System.out.println("Calendar's Year: " + cal.get(Calendar.YEAR));
+                        System.out.println("Calendar's Month: " + cal.get(Calendar.MONTH));
+                        System.out.println("Calendar's Day: " + cal.get(Calendar.DATE));
+                        //String[] pieces = date.split("/",-1);
+                        //if (pieces.length == 3) {
+                            //Log.i(date.,"debug");
+                     //       if (pieces[2].substring(0,2).equals(selectedYear)) { //yyyy
+                                int month = cal.get(Calendar.MONTH); //mm
+                                if(dataTable[month] != 0) {
+                                    int count = dataTable[month];
                                     count ++;
-                                    dataTable[month-1] = count;
+                                    dataTable[month] = count;
                                 } else {
-                                    dataTable[month - 1] = 1;
+                                    dataTable[month] = 1;
                                 }
-                            }
-                        }
+                 //           }
+                        //}
                     }
                     DataPoint[] list = new DataPoint[12];
                     for (int index= 0 ; index < dataTable.length; index++) {

@@ -31,12 +31,12 @@ public class ViewSingleReport extends AppCompatActivity {
         //assign attribute of report to the text.
         
         content1.setText(selected.getUniqueKey());
-        content2.setText(selected.getDate());
-        content3.setText(selected.getLocationType());
+        content2.setText(selected.getDate().toString());
+        content3.setText(selected.getLocationType().toString());
         content4.setText(selected.getIncidentZip());
         content5.setText(selected.getIncidentAddress());
         content6.setText(selected.getCity());
-        content7.setText(selected.getBorough());
+        content7.setText(selected.getBorough().toString());
         content8.setText(String.valueOf(selected.getLatitude()));
         content9.setText(String.valueOf(selected.getLongitude()));
 

@@ -4,6 +4,8 @@ import java.io.Serializable;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Created by jw_chung on 10/5/17.
@@ -19,12 +21,27 @@ public class Rat {
         QUEENS ("QUEENS"),
         BROOKLYN ("BROOKLYN"),
         BRONX ("BRONX");
-
         private final String abbrev;
-
         private Borough(String value) {
             this.abbrev = value;
         }
+
+        private static Map<String, Borough> map = new HashMap<String, Borough>();
+
+        static {
+            for (Borough hood : Borough.values()) {
+                map.put(hood.abbrev, hood);
+            }
+        }
+
+
+        public static Borough valueLookUp(String hood) {
+            return map.get(hood);
+        }
+
+
+
+
 
         public String toString() {
             return this.abbrev;
@@ -45,6 +62,19 @@ public class Rat {
 
         private LocationType(String value) {
             this.abbrev = value;
+        }
+
+        private static Map<String, LocationType> map = new HashMap<String, LocationType>();
+
+        static {
+            for (LocationType loc : LocationType.values()) {
+                map.put(loc.abbrev, loc);
+            }
+        }
+
+
+        public static LocationType valueLookUp(String loc) {
+            return map.get(loc);
         }
 
         public String toString() {

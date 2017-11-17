@@ -22,6 +22,7 @@ public class ReportingActivity extends AppCompatActivity {
 
     static Rat addThis;
     private Spinner boroughSpinner;
+    private Spinner locationTypeSpinner;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,18 +38,26 @@ public class ReportingActivity extends AppCompatActivity {
         EditText latitude = (EditText) findViewById(R.id.laditInput);
         EditText longitude = (EditText) findViewById(R.id.longitInput);
         boroughSpinner = (Spinner) findViewById(R.id.spinner);
+        boroughSpinner = (Spinner) findViewById(R.id.spinner2);
 
         Button submitButton = (Button) findViewById(R.id.submitButton);
         Button cancelButton = (Button) findViewById(R.id.cancelButton);
 
 
         /*
-          Set up the adapter to display the allowable majors in the spinner
+          Set up the adapter to display the allowable Boroughs in the spinner
          */
-//        ArrayAdapter<String> adapter1 = new ArrayAdapter(this,android.R.layout.simple_spinner_item, Rat.Borough.values());
-//        ArrayAdapter<Rat.Borough> adapter = new ArrayAdapter<Rat.Borough>(this, android.R.layout.simple_list_item_1, Rat.Borough.values());
-//        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        boroughSpinner.setAdapter(new ArrayAdapter<Rat.Borough>(this, android.R.layout.simple_list_item_1));
+        ArrayAdapter<String> adapter = new ArrayAdapter(this,android.R.layout.simple_spinner_item, Rat.Borough.values());
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        boroughSpinner.setAdapter(adapter);
+
+        /*
+          Set up the adapter to display the allowable Boroughs in the spinner
+         */
+        ArrayAdapter<String> adapter1 = new ArrayAdapter(this,android.R.layout.simple_spinner_item, Rat.LocationType.values());
+        adapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        locationTypeSpinner.setAdapter(adapter1);
+
 
         submitButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -56,7 +65,7 @@ public class ReportingActivity extends AppCompatActivity {
                 addThis = new Rat(
                         reportcounter,
                         new Date(),
-                        locationType.getText().toString(),
+                        (Rat.LocationType) locationTypeSpinner.getSelectedItem(),
                         parseInt(incidentZip.getText().toString()),
                         incidentAddress.getText().toString(),
                         city.getText().toString(),

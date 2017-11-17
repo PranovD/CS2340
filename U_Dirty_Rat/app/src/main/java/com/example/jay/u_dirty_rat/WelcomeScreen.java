@@ -52,11 +52,11 @@ public class WelcomeScreen extends AppCompatActivity {
                     Date date = sourceFormat.parse(pieces[1]);
                     Rat report = new Rat(parseInt(pieces[0]),
                             date,
-                            Rat.LocationType.valueOf(pieces[2]),
+                            Rat.LocationType.valueLookUp(pieces[2]),
                             parseInt(pieces[3]),
                             pieces[4],
                             pieces[5],
-                            Rat.Borough.valueOf(pieces[6]),
+                            Rat.Borough.valueLookUp(pieces[6]),
                             parseDouble(pieces[7]),
                             parseDouble(pieces[8])); //create rat class object (report).
                     database.add(report); //adding object to the database(stack).
