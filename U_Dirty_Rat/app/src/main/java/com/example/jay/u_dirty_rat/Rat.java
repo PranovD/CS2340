@@ -1,5 +1,10 @@
 package com.example.jay.u_dirty_rat;
 
+import java.io.Serializable;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
+
 /**
  * Created by jw_chung on 10/5/17.
  * this class will allow us to handle
@@ -7,13 +12,52 @@ package com.example.jay.u_dirty_rat;
  */
 
 public class Rat {
+
+    public enum Borough implements Serializable {
+        MANHATTAN ("MANHATTAN"),
+        STATEN_ISLAND ("STATEN ISLAND"),
+        QUEENS ("QUEENS"),
+        BROOKLYN ("BROOKLYN"),
+        BRONX ("BRONX");
+
+        private final String abbrev;
+
+        private Borough(String value) {
+            this.abbrev = value;
+        }
+
+        public String toString() {
+            return this.abbrev;
+        }
+    }
+
+    public enum LocationType implements Serializable {
+        DWELLING ("1-2 Family Dwelling"),
+        APARTMENT ("3+ Family Apt. Building"),
+        MIXED ("3+ Family Mixed Use Building"),
+        COMMERCIAL ("Commercial Building"),
+        LOT ("Vacant Lot"),
+        CONSTRUCTION ("Construction Site"),
+        HOSPITAL ("Hospital"),
+        SEWER ("Catch Basin/Sewer");
+
+        private final String abbrev;
+
+        private LocationType(String value) {
+            this.abbrev = value;
+        }
+
+        public String toString() {
+            return this.abbrev;
+        }
+    }
     private int uniqueKey;
-    private String date;
-    private String locationType;
+    private Date date;
+    private LocationType locationType;
     private int incidentZip;
     private String incidentAddress;
     private String city;
-    private String borough;
+    private Borough borough;
     private double latitude;
     private double longitude;
 
@@ -23,12 +67,12 @@ public class Rat {
      */
     public Rat() {
         this.uniqueKey = -1;
-        this.date = "TBD";
-        this.locationType = "TBD";
+        this.date = new Date();
+        this.locationType = LocationType.DWELLING;
         this.incidentZip = 00000;
         this.incidentAddress = "TBD";
         this.city = "TBD";
-        this.borough = "TBD";
+        this.borough = Borough.MANHATTAN;
         this.latitude = 0.0;
         this.longitude = 0.0;
     }
@@ -38,7 +82,7 @@ public class Rat {
     /**
      * constructor with string inputs
      * @param Unique_Key
-     * @param Date
+     * @param date
      * @param Location_Type
      * @param Incident_Zip
      * @param Incident_Address
@@ -47,15 +91,15 @@ public class Rat {
      * @param Latitude
      * @param Longitude
      */
-    public Rat(int Unique_Key,String Date, String Location_Type,int Incident_Zip,String Incident_Address,
-               String City,String Borough,double Latitude,double Longitude) {
+    public Rat(int Unique_Key,Date date, LocationType Location_Type,int Incident_Zip,String Incident_Address,
+               String City,Borough borough,double Latitude,double Longitude) {
         this.uniqueKey = Unique_Key;
-        this.date = Date;
+        this.date = date;
         this.locationType = Location_Type;
         this.incidentZip = Incident_Zip;
         this.incidentAddress = Incident_Address;
         this.city = City;
-        this.borough = Borough;
+        this.borough = borough;
         this.latitude = Latitude;
         this.longitude = Longitude;
     }
@@ -70,7 +114,7 @@ public class Rat {
      * getter method for date.
      * @return date of the object
      */
-    public String getDate() {
+    public Date getDate() {
         return date;
     }
 
@@ -78,7 +122,7 @@ public class Rat {
      * getter method for location type.
      * @return location type of the object
      */
-    public String getLocationType() { return locationType;}
+    public LocationType getLocationType() { return locationType;}
 
     /**
      * getter method for incident zip.
@@ -104,7 +148,7 @@ public class Rat {
      * getter method for borough
      * @return borough of the object.
      */
-    public String getBorough() { return borough;}
+    public Borough getBorough() { return borough;}
 
     /**
      * getter method for latitude
@@ -130,7 +174,7 @@ public class Rat {
      * setter method to change date
      * @param date : new date
      */
-    public void setDate(String date) {
+    public void setDate(Date date) {
         this.date = date;
     }
 
@@ -138,7 +182,7 @@ public class Rat {
      * setter method to change location type
      * @param locationType : new location type
      */
-    public void setLocationType(String locationType) {
+    public void setLocationType(LocationType locationType) {
         this.locationType = locationType;
     }
 
@@ -186,7 +230,7 @@ public class Rat {
      * setter method to change borough
      * @param borough : new borough
      */
-    public void setBorough(String borough) {
+    public void setBorough(Borough borough) {
         this.borough = borough;
     }
 

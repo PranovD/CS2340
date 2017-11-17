@@ -16,6 +16,10 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 import java.util.Stack;
 import static java.lang.Double.parseDouble;
@@ -43,10 +47,12 @@ public class WelcomeScreen extends AppCompatActivity {
             int counter = 0;
             while(rawreport != null) { //while there is a report,
                 String[] pieces = rawreport.split(",",-1);
-                try {
+                DateFormat sourceFormat = new SimpleDateFormat("MM/dd/yy");
 
+                try {
+                    Date date = sourceFormat.parse(pieces[1]);
                     Rat report = new Rat(parseInt(pieces[0]),
-                            pieces[1],
+                            date,
                             pieces[2],
                             parseInt(pieces[3]),
                             pieces[4],
@@ -57,6 +63,9 @@ public class WelcomeScreen extends AppCompatActivity {
                     database.add(report); //adding object to the database(stack).
                 }
                 catch (NumberFormatException nfe) {
+
+                }
+                catch (ParseException e) {
 
                 }
                 //reports.child(pieces[1]).setValue(report);
