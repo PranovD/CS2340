@@ -49,7 +49,7 @@ public class MapPage extends AppCompatActivity implements OnMapReadyCallback {
     private static GoogleMap map;
     private static final String TAG = "MapActivity";
     public static Rat selected;
-    public static int reportcounter = 0;
+    public static int reportCounter = 0;
     public static int startInt = 19690720;
     public static int endInt = 20171031;
     public static List filteredDatabase = new Stack();
@@ -67,13 +67,13 @@ public class MapPage extends AppCompatActivity implements OnMapReadyCallback {
             SimpleDateFormat formatFilter = new SimpleDateFormat("yyyyMMdd");
             try {
 
-                Date formatedDate = formatRat.parse(date);
+                Date formattedDate = formatRat.parse(date);
                 Date startFilter = formatFilter.parse(String.valueOf(startInt));
                 Log.d(TAG,String.valueOf(startInt)+ "Start Date: "+ startFilter.toString());
                 Date endFilter = formatFilter.parse(String.valueOf(endInt));
-                Log.d(TAG,"Date: "+ formatedDate.toString());
+                Log.d(TAG,"Date: "+ formattedDate.toString());
                 Log.d(TAG,String.valueOf(endInt)+"End Date: "+ endFilter.toString());
-                if (!(formatedDate.compareTo(endFilter) > 0 || formatedDate.compareTo(startFilter) < 0)) {
+                if (!(formattedDate.compareTo(endFilter) > 0 || formattedDate.compareTo(startFilter) < 0)) {
                     filteredDatabase.add(rat);
                     if (rat != null) {
                         map.addMarker(new MarkerOptions()

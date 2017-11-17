@@ -39,10 +39,10 @@ public class WelcomeScreen extends AppCompatActivity {
         BufferedReader reader = new BufferedReader
                 (new InputStreamReader(inputStream));
         try {
-            String rawreport = reader.readLine();
+            String rawReport = reader.readLine();
             int counter = 0;
-            while(rawreport != null) { //while there is a report,
-                String[] pieces = rawreport.split(",",-1);
+            while(rawReport != null) { //while there is a report,
+                String[] pieces = rawReport.split(",",-1);
                 try {
 
                     Rat report = new Rat(parseInt(pieces[0]),
@@ -62,7 +62,7 @@ public class WelcomeScreen extends AppCompatActivity {
                 //reports.child(pieces[1]).setValue(report);
           //reports.child(pieces[1]).setValue(report);
 
-                rawreport = reader.readLine();
+                rawReport = reader.readLine();
             }
         } catch (IOException e) {
         }
@@ -85,11 +85,11 @@ public class WelcomeScreen extends AppCompatActivity {
                     Log.d(TAG, "onAuthStateChanged:signed_out");
                 }
                 // ...
-                Log.d(TAG, "Inside mAuthListner");
+                Log.d(TAG, "Inside mAuthListener");
             }
 
         };
-        Log.d(TAG, "Outside mAuthListner");
+        Log.d(TAG, "Outside mAuthListener");
 
         //set the listener and intent.
         loginButton.setOnClickListener(new View.OnClickListener() {

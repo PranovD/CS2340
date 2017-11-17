@@ -10,7 +10,7 @@ import android.widget.EditText;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.example.jay.u_dirty_rat.MainPage.reportcounter;
+import static com.example.jay.u_dirty_rat.MainPage.reportCounter;
 import static com.example.jay.u_dirty_rat.WelcomeScreen.database;
 import static java.lang.Double.parseDouble;
 import static java.lang.Integer.parseInt;
@@ -40,7 +40,7 @@ public class ReportingActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 addThis = new Rat(
-                        reportcounter,
+                        reportCounter,
                         date.getText().toString(),
                         locationType.getText().toString(),
                         parseInt(incidentZip.getText().toString()),
@@ -51,7 +51,7 @@ public class ReportingActivity extends AppCompatActivity {
                         parseDouble(longitude.getText().toString())
                 );
                 database.add(1,addThis);
-                reportcounter++;
+                reportCounter++;
                 startActivity(new Intent(ReportingActivity.this, MainPage.class));
             }
         });

@@ -38,16 +38,6 @@ import java.util.List;
  */
 public class LoginActivity extends AppCompatActivity {
 
-
-
-
-    /**
-     * I'm not sure what this does
-     */
-    private static final String[] DUMMY_CREDENTIALS = new String[] {
-            "user"
-    };
-
     // UI references.
     private AutoCompleteTextView mEmailView;
     private EditText mPasswordView;

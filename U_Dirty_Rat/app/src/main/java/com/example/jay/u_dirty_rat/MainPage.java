@@ -25,7 +25,7 @@ public class MainPage extends AppCompatActivity {
     private FirebaseAuth.AuthStateListener mAuthListener;
     private static final String TAG = "MainActivity";
     public static Rat selected;
-    public static int reportcounter = 0;
+    public static int reportCounter = 0;
     // public DatabaseReference reports;
 
     @Override
