@@ -123,16 +123,16 @@ public class RegistrationActivity extends AppCompatActivity {
      * @param in
      * @return boolean value. return true if it is valid.
      */
-    private boolean isUsernameValid(String in) {
-        String[] nameAndAddr = in.split(".");
-        //check if it has 1 . in the middle.
+    public boolean isUsernameValid(String in) {
+        String[] nameAndAddr = in.split("@");
+        //check if it has 1 @ in the middle.
         if (nameAndAddr.length == 2){
-            String[] further = nameAndAddr[0].split("@");
-            // check if it has 1 @ in the front
-            if (further.length == 2) {
-                // check if the last part is right type
-                if(nameAndAddr[1].equals("com") ||
-                        nameAndAddr[1].equals("net")){
+            String further = nameAndAddr[1];
+            String[] fin = further.split("\\.");
+            // check if it has 1 . in the back
+            if (fin.length == 2) {
+                //check if there is something between @ and .
+                if (!fin[0].equals("")){
                     return true;
                 }
             }
