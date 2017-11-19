@@ -118,6 +118,27 @@ public class RegistrationActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * check validity of the username.
+     * @param in
+     * @return boolean value. return true if it is valid.
+     */
+    private boolean isUsernameValid(String in) {
+        String[] nameAndAddr = in.split(".");
+        //check if it has 1 . in the middle.
+        if (nameAndAddr.length == 2){
+            String[] further = nameAndAddr[0].split("@");
+            // check if it has 1 @ in the front
+            if (further.length == 2) {
+                // check if the last part is right type
+                if(nameAndAddr[1].equals("com") ||
+                        nameAndAddr[1].equals("net")){
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
 
     /**
      * Attempts to register a new user. If successful, sends logged in user to MainPage
@@ -139,6 +160,13 @@ public class RegistrationActivity extends AppCompatActivity {
          */
         if(TextUtils.isEmpty(password)) {
             Toast.makeText(this, "Please enter a password", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        /**
+         * Checks if email is in right format.
+         */
+        if(!isUsernameValid(email)) {
+            Toast.makeText(this, "Username is invalid type.", Toast.LENGTH_SHORT).show();
             return;
         }
 
