@@ -42,7 +42,6 @@ public class GraphPage extends AppCompatActivity {
         graph.getGridLabelRenderer().setVerticalAxisTitle("Sightings");
 
 
-<<<<<<< HEAD
         updateButton.setOnClickListener(view -> {
             EditText raw = (EditText) findViewById(R.id.yearText);
             String selectedYear = raw.getText().toString().substring(2, 4);
@@ -62,7 +61,6 @@ public class GraphPage extends AppCompatActivity {
                                 dataTable[month - 1] = count;
                             } else {
                                 dataTable[month - 1] = 1;
-=======
         updateButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -85,7 +83,6 @@ public class GraphPage extends AppCompatActivity {
                                 } else {
                                     dataTable[month - 1] = 1;
                                 }
->>>>>>> 62733c10817ad1de33809534f582f205df1678bf
                             }
                         }
                     }
