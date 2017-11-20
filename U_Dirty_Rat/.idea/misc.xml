@@ -1,7 +1,67 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="EntryPointsManager">
-    <entry_points version="2.0" />
+    <entry_points version="2.0">
+      <entry_point TYPE="method" FQNAME="com.example.jay.u_dirty_rat.ExampleInstrumentedTest void useAppContext()" />
+      <entry_point TYPE="implicit.constructor" FQNAME="com.example.jay.u_dirty_rat.ExampleInstrumentedTest" />
+      <entry_point TYPE="method" FQNAME="com.example.jay.u_dirty_rat.ExampleUnitTest void addition_isCorrect()" />
+      <entry_point TYPE="implicit.constructor" FQNAME="com.example.jay.u_dirty_rat.ExampleUnitTest" />
+      <entry_point TYPE="field" FQNAME="com.example.jay.u_dirty_rat.GraphPage series" />
+      <entry_point TYPE="implicit.constructor" FQNAME="com.example.jay.u_dirty_rat.GraphPage" />
+      <entry_point TYPE="method" FQNAME="com.example.jay.u_dirty_rat.JUnitAustinD void containsTest_isIncorrect()" />
+      <entry_point TYPE="method" FQNAME="com.example.jay.u_dirty_rat.JUnitAustinD void containsTest_noEmail()" />
+      <entry_point TYPE="method" FQNAME="com.example.jay.u_dirty_rat.JUnitAustinD void containsTest_isCorrect()" />
+      <entry_point TYPE="field" FQNAME="com.example.jay.u_dirty_rat.JUnitAustinD db" />
+      <entry_point TYPE="implicit.constructor" FQNAME="com.example.jay.u_dirty_rat.JUnitAustinD" />
+      <entry_point TYPE="method" FQNAME="com.example.jay.u_dirty_rat.JUnitJayP void containsTest_isIncorrect()" />
+      <entry_point TYPE="method" FQNAME="com.example.jay.u_dirty_rat.JUnitJayP void containsTest_noPassword()" />
+      <entry_point TYPE="method" FQNAME="com.example.jay.u_dirty_rat.JUnitJayP void containsTest_isCorrect()" />
+      <entry_point TYPE="field" FQNAME="com.example.jay.u_dirty_rat.JUnitJayP userDB" />
+      <entry_point TYPE="implicit.constructor" FQNAME="com.example.jay.u_dirty_rat.JUnitJayP" />
+      <entry_point TYPE="method" FQNAME="com.example.jay.u_dirty_rat.JUnitJinC void nameCheckingTest_multipleAt()" />
+      <entry_point TYPE="method" FQNAME="com.example.jay.u_dirty_rat.JUnitJinC void nameCheckingTest_noBoth()" />
+      <entry_point TYPE="method" FQNAME="com.example.jay.u_dirty_rat.JUnitJinC void nameCheckingTest_noDot()" />
+      <entry_point TYPE="method" FQNAME="com.example.jay.u_dirty_rat.JUnitJinC void nameCheckingTest_noCompany()" />
+      <entry_point TYPE="method" FQNAME="com.example.jay.u_dirty_rat.JUnitJinC void nameCheckingTest_noAt()" />
+      <entry_point TYPE="method" FQNAME="com.example.jay.u_dirty_rat.JUnitJinC void nameCheckingTest_void()" />
+      <entry_point TYPE="method" FQNAME="com.example.jay.u_dirty_rat.JUnitJinC void nameCheckingTest_correct()" />
+      <entry_point TYPE="implicit.constructor" FQNAME="com.example.jay.u_dirty_rat.JUnitJinC" />
+      <entry_point TYPE="method" FQNAME="com.example.jay.u_dirty_rat.JUnitPranovD void parseDateTest_wrong()" />
+      <entry_point TYPE="method" FQNAME="com.example.jay.u_dirty_rat.JUnitPranovD void parseDateTest_void()" />
+      <entry_point TYPE="method" FQNAME="com.example.jay.u_dirty_rat.JUnitPranovD void parseDateTest_correct()" />
+      <entry_point TYPE="field" FQNAME="com.example.jay.u_dirty_rat.JUnitPranovD r" />
+      <entry_point TYPE="implicit.constructor" FQNAME="com.example.jay.u_dirty_rat.JUnitPranovD" />
+      <entry_point TYPE="field" FQNAME="com.example.jay.u_dirty_rat.LoginActivity mLoginFormView" />
+      <entry_point TYPE="field" FQNAME="com.example.jay.u_dirty_rat.LoginActivity mProgressView" />
+      <entry_point TYPE="implicit.constructor" FQNAME="com.example.jay.u_dirty_rat.LoginActivity" />
+      <entry_point TYPE="implicit.constructor" FQNAME="com.example.jay.u_dirty_rat.MainPage" />
+      <entry_point TYPE="method" FQNAME="com.example.jay.u_dirty_rat.MapPage void showDatePickerDialogEnd(android.view.View v)" />
+      <entry_point TYPE="method" FQNAME="com.example.jay.u_dirty_rat.MapPage void showDatePickerDialogStart(android.view.View v)" />
+      <entry_point TYPE="field" FQNAME="com.example.jay.u_dirty_rat.MapPage reportCounter" />
+      <entry_point TYPE="field" FQNAME="com.example.jay.u_dirty_rat.MapPage selected" />
+      <entry_point TYPE="field" FQNAME="com.example.jay.u_dirty_rat.MapPage mAuthListener" />
+      <entry_point TYPE="field" FQNAME="com.example.jay.u_dirty_rat.MapPage mAuth" />
+      <entry_point TYPE="implicit.constructor" FQNAME="com.example.jay.u_dirty_rat.MapPage" />
+      <entry_point TYPE="method" FQNAME="com.example.jay.u_dirty_rat.Rat void setBorough(java.lang.String borough)" />
+      <entry_point TYPE="method" FQNAME="com.example.jay.u_dirty_rat.Rat void setLongitude(double longitude)" />
+      <entry_point TYPE="method" FQNAME="com.example.jay.u_dirty_rat.Rat void setLatitude(double latitude)" />
+      <entry_point TYPE="method" FQNAME="com.example.jay.u_dirty_rat.Rat void setCity(java.lang.String city)" />
+      <entry_point TYPE="method" FQNAME="com.example.jay.u_dirty_rat.Rat void setIncidentAddress(java.lang.String incidentAddress)" />
+      <entry_point TYPE="method" FQNAME="com.example.jay.u_dirty_rat.Rat void setIncidentZip(int incidentZip)" />
+      <entry_point TYPE="method" FQNAME="com.example.jay.u_dirty_rat.Rat void setLocationType(java.lang.String locationType)" />
+      <entry_point TYPE="method" FQNAME="com.example.jay.u_dirty_rat.Rat void setDate(java.lang.String date)" />
+      <entry_point TYPE="method" FQNAME="com.example.jay.u_dirty_rat.Rat void setUniqueKey(int uniqueKey)" />
+      <entry_point TYPE="method" FQNAME="com.example.jay.u_dirty_rat.Rat Rat()" />
+      <entry_point TYPE="method" FQNAME="com.example.jay.u_dirty_rat.Rat Rat(int Unique_Key, java.lang.String Date, java.lang.String Location_Type, int Incident_Zip, java.lang.String Incident_Address, java.lang.String City, java.lang.String Borough, double Latitude, double Longitude)" />
+      <entry_point TYPE="class" FQNAME="com.example.jay.u_dirty_rat.Rat" />
+      <entry_point TYPE="implicit.constructor" FQNAME="com.example.jay.u_dirty_rat.RegistrationActivity" />
+      <entry_point TYPE="implicit.constructor" FQNAME="com.example.jay.u_dirty_rat.ReportingActivity" />
+      <entry_point TYPE="method" FQNAME="com.example.jay.u_dirty_rat.UserDB void add(java.lang.String email, java.lang.String password, boolean isAdmin)" />
+      <entry_point TYPE="method" FQNAME="com.example.jay.u_dirty_rat.UserDB UserDB()" />
+      <entry_point TYPE="class" FQNAME="com.example.jay.u_dirty_rat.UserDB" />
+      <entry_point TYPE="implicit.constructor" FQNAME="com.example.jay.u_dirty_rat.ViewSingleReport" />
+      <entry_point TYPE="implicit.constructor" FQNAME="com.example.jay.u_dirty_rat.WelcomeScreen" />
+    </entry_points>
   </component>
   <component name="NullableNotNullManager">
     <option name="myDefaultNullable" value="android.support.annotation.Nullable" />
