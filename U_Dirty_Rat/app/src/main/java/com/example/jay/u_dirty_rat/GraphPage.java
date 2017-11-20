@@ -17,7 +17,7 @@ import static com.example.jay.u_dirty_rat.WelcomeScreen.database;
 
 public class GraphPage extends AppCompatActivity {
 
-    private BarGraphSeries<DataPoint> series;
+    BarGraphSeries<DataPoint> series;
 
     /**
      * Creates the activity. Initializes an empty graph with the correct layout and formatting
@@ -42,58 +42,46 @@ public class GraphPage extends AppCompatActivity {
         graph.getGridLabelRenderer().setVerticalAxisTitle("Sightings");
 
 
-        updateButton.setOnClickListener(view -> {
-            EditText raw = (EditText) findViewById(R.id.yearText);
-            String selectedYear = raw.getText().toString().substring(2, 4);
-            int[] dataTable = new int[12];
-            if (selectedYear.length() == 2) {
-                for (int i = 0; i < database.size(); i++) {
-                    Rat rat = (Rat) database.get(i);
-                    String date = rat.getDate();
-                    String[] pieces = date.split("/", -1);
-                    if (pieces.length == 3) {
-                        Log.i(pieces[2], "debug");
-                        if (pieces[2].substring(0, 2).equals(selectedYear)) { //yyyy
-                            int month = Integer.parseInt(pieces[0]); //mm
-                            if (dataTable[month - 1] != 0) {
-                                int count = dataTable[month - 1];
-                                count++;
-                                dataTable[month - 1] = count;
-                            } else {
-                                dataTable[month - 1] = 1;
-                                updateButton.setOnClickListener(new View.OnClickListener() {
-                                    @Override
-                                    public void onClick(View view) {
-                                        EditText raw = (EditText) findViewById(R.id.yearText);
-                                        String selectedYear = raw.getText().toString().substring(2, 4);
-                                        int[] dataTable = new int[12];
-                                        if (selectedYear.length() == 2) {
-                                            for (int i = 0; i < database.size(); i++) {
-                                                Rat rat = database.get(i);
-                                                String date = rat.getDate();
-                                                String[] pieces = date.split("/", -1);
-                                                if (pieces.length == 3) {
-                                                    Log.i(pieces[2], "debug");
-                                                    if (pieces[2].substring(0, 2).equals(selectedYear)) { //yyyy
-                                                        int month = Integer.parseInt(pieces[0]); //mm
-                                                        if (dataTable[month - 1] != 0) {
-                                                            int count = dataTable[month - 1];
-                                                            count++;
-                                                            dataTable[month - 1] = count;
-                                                        } else {
-                                                            dataTable[month - 1] = 1;
-                                                        }
-                                                    }
-                                                }
-                                            }
-                                        }
-                                        DataPoint[] list = new DataPoint[12];
-                                        for (int index = 0; index < dataTable.length; index++) {
-                                            list[index] = new DataPoint(index + 1, dataTable[index]);
-                                        }
-                                        series.resetData(list);
-                                    }
+        updateButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                EditText raw = (EditText) findViewById(R.id.yearText);
+                String selectedYear = raw.getText().toString().substring(2, 4);
+                int[] dataTable = new int[12];
+                if(selectedYear.length() == 2) {
+                    for(int i = 0; i < database.size(); i++) {
+                        Rat rat = database.get(i);
+                        String date = rat.getDate();
+                        String[] pieces = date.split("/",-1);
+                        if (pieces.length == 3) {
+                            Log.i(pieces[2],"debug");
+                            if (pieces[2].substring(0, 2).equals(selectedYear)) { //yyyy
+                                int month = Integer.parseInt(pieces[0]); //mm
+                                if(dataTable[month - 1] != 0) {
+                                    int count = dataTable[month-1];
+                                    count ++;
+                                    dataTable[month - 1] = count;
+                                } else {
+                                    dataTable[month - 1] = 1;
+                                }
+                            }
+                        }
+                    }
+                    DataPoint[] list = new DataPoint[12];
+                    for (int index= 0 ; index < dataTable.length; index++) {
+                        list[index] = new DataPoint(index+1, dataTable[index]);
+                    }
+                    series.resetData(list);
+                }
 
-                                });
+            }
+        });
 
-                                backButton.setOnClickListener(view -> startActivity(new Intent(GraphPage.this, MainPage.class)));
+        backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(GraphPage.this,MainPage.class));
+            }
+        });
+    }
+}
