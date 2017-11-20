@@ -22,6 +22,7 @@
             android:inputType="textCapCharacters" />
 
         <EditText
+            android:id="@+id/inciZipInput"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="17dp"
@@ -30,6 +31,7 @@
             android:inputType="number" />
 
         <EditText
+            android:id="@+id/inciAddrInput"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
@@ -46,6 +48,7 @@
             android:inputType="textPersonName" />
 
         <EditText
+            android:id="@+id/boroInput"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="11dp"
@@ -54,6 +57,7 @@
             android:inputType="textCapCharacters" />
 
         <EditText
+            android:id="@+id/latInput"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="50dp"
@@ -62,6 +66,7 @@
             android:inputType="numberDecimal" />
 
         <EditText
+            android:id="@+id/longInput"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"

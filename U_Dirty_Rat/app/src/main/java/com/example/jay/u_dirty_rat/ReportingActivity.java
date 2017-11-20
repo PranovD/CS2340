@@ -26,8 +26,8 @@ public class ReportingActivity extends AppCompatActivity {
         EditText incidentAddress = (EditText) findViewById(R.id.inciAddrInput);
         EditText city = (EditText) findViewById(R.id.cityInput);
         EditText borough = (EditText) findViewById(R.id.boroInput);
-        EditText latitude = (EditText) findViewById(R.id.laditInput);
-        EditText longitude = (EditText) findViewById(R.id.longitInput);
+        EditText latitude = (EditText) findViewById(R.id.latInput);
+        EditText longitude = (EditText) findViewById(R.id.longInput);
 
         Button submitButton = (Button) findViewById(R.id.submitButton);
         Button cancelButton = (Button) findViewById(R.id.cancelButton);
