@@ -25,7 +25,7 @@ public class WelcomeScreen extends AppCompatActivity {
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
     private static final String TAG = "WelcomeScreen";
-    public static List<Rat> database = new Stack();
+    public static final List<Rat> database = new Stack();
 
 
     @Override
@@ -55,7 +55,7 @@ public class WelcomeScreen extends AppCompatActivity {
                             parseDouble(pieces[8])); //create rat class object (report).
                     database.add(report); //adding object to the database(stack).
                 }
-                catch (NumberFormatException nfe) {
+                catch (NumberFormatException ignored) {
 
                 }
                 //reports.child(pieces[1]).setValue(report);
@@ -63,7 +63,7 @@ public class WelcomeScreen extends AppCompatActivity {
 
                 rawReport = reader.readLine();
             }
-        } catch (IOException e) {
+        } catch (IOException ignored) {
         }
         //creating button objects to use as action listener.
         Button loginButton = (Button) findViewById(R.id.LogInButton);

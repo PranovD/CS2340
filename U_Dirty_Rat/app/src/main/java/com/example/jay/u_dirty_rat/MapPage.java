@@ -42,7 +42,7 @@ public class MapPage extends AppCompatActivity implements OnMapReadyCallback {
     public static int reportCounter = 0;
     private static int startInt = 19690720;
     private static int endInt = 20171031;
-    private static List filteredDatabase = new Stack();
+    private static final List filteredDatabase = new Stack();
     // public DatabaseReference reports;
 
     /**
