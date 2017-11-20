@@ -20,6 +20,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 import java.util.Stack;
 import static java.lang.Double.parseDouble;
 import static java.lang.Integer.parseInt;
@@ -113,7 +114,7 @@ public class WelcomeScreen extends AppCompatActivity {
 
     public static Date parseDate(String date) {
         try {
-            return new SimpleDateFormat("MM/dd/yy").parse(date);
+            return new SimpleDateFormat("MM/dd/yy", Locale.US).parse(date);
         } catch (ParseException e) {
             return null;
         }
