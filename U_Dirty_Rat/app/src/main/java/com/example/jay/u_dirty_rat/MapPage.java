@@ -40,19 +40,19 @@ public class MapPage extends AppCompatActivity implements OnMapReadyCallback {
     private static final String TAG = "MapActivity";
     public static Rat selected;
     public static int reportCounter = 0;
-    public static int startInt = 19690720;
-    public static int endInt = 20171031;
-    public static List filteredDatabase = new Stack();
+    private static int startInt = 19690720;
+    private static int endInt = 20171031;
+    private static List filteredDatabase = new Stack();
     // public DatabaseReference reports;
 
     /**
      * Updates filteredDatabase with data in the current date range
      */
-    public static void filterDB() {
+    private static void filterDB() {
         filteredDatabase.clear();
 
         for(int i = 0; i < database.size(); i++) {
-            Rat rat = (Rat) database.get(i);
+            Rat rat = database.get(i);
             Log.d(TAG, rat.toString());
             String date = rat.getDate();
 

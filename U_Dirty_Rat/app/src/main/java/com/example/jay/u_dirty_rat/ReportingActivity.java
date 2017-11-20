@@ -14,7 +14,7 @@ import static java.lang.Integer.parseInt;
 
 public class ReportingActivity extends AppCompatActivity {
 
-    static Rat addThis;
+    private static Rat addThis;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
