@@ -26,6 +26,10 @@ public class GraphPage extends AppCompatActivity {
 
     BarGraphSeries<DataPoint> series;
 
+    /**
+     * Creates the activity. Initializes an empty graph with the correct layout and formatting
+     * @param savedInstanceState the stored activity data if returning from background
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,13 +39,21 @@ public class GraphPage extends AppCompatActivity {
         Button updateButton = (Button) findViewById(R.id.updateButton);
         Button backButton = (Button) findViewById(R.id.backButton);
         GraphView graph = (GraphView) findViewById(R.id.graph);
+        //Format and add the graph
+        graph.addSeries(series);
+        graph.setTitle("Historical Sighting Report");
+        graph.getViewport().setXAxisBoundsManual(true);
+        graph.getViewport().setMinX(0);
+        graph.getViewport().setMaxX(13);
+        graph.getGridLabelRenderer().setHorizontalAxisTitle("Month");
+        graph.getGridLabelRenderer().setVerticalAxisTitle("Sightings");
 
 
         updateButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 EditText raw = (EditText) findViewById(R.id.yearText);
-                String selectedYear = raw.getText().toString().substring(2,4);
+                String selectedYear = raw.getText().toString().substring(2, 4);
                 int[] dataTable = new int[12];
                 if(selectedYear.length() == 2) {
                     for(int i = 0; i < database.size(); i++) {
@@ -50,12 +62,12 @@ public class GraphPage extends AppCompatActivity {
                         String[] pieces = date.split("/",-1);
                         if (pieces.length == 3) {
                             Log.i(pieces[2],"debug");
-                            if (pieces[2].substring(0,2).equals(selectedYear)) { //yyyy
+                            if (pieces[2].substring(0, 2).equals(selectedYear)) { //yyyy
                                 int month = Integer.parseInt(pieces[0]); //mm
-                                if(dataTable[month-1] != 0) {
+                                if(dataTable[month - 1] != 0) {
                                     int count = dataTable[month-1];
                                     count ++;
-                                    dataTable[month-1] = count;
+                                    dataTable[month - 1] = count;
                                 } else {
                                     dataTable[month - 1] = 1;
                                 }
@@ -66,14 +78,7 @@ public class GraphPage extends AppCompatActivity {
                     for (int index= 0 ; index < dataTable.length; index++) {
                         list[index] = new DataPoint(index+1, dataTable[index]);
                     }
-                    series = new BarGraphSeries<DataPoint>(list);
-                    graph.addSeries(series);
-                    graph.setTitle("Historical Sighting Report");
-                    graph.getViewport().setXAxisBoundsManual(true);
-                    graph.getViewport().setMinX(0);
-                    graph.getViewport().setMaxX(13);
-                    graph.getGridLabelRenderer().setHorizontalAxisTitle("month");
-                    graph.getGridLabelRenderer().setVerticalAxisTitle("Sightings");
+                    series.resetData(list);
                 }
 
             }

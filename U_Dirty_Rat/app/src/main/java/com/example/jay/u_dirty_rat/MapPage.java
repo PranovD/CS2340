@@ -4,19 +4,12 @@ package com.example.jay.u_dirty_rat;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.app.FragmentManager;
-import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.DatePicker;
-import android.widget.ListView;
 import android.app.DialogFragment;
-import android.widget.Toast;
 
 
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -26,14 +19,10 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
 
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
@@ -55,6 +44,9 @@ public class MapPage extends AppCompatActivity implements OnMapReadyCallback {
     public static List filteredDatabase = new Stack();
     // public DatabaseReference reports;
 
+    /**
+     * Updates filteredDatabase with data in the current date range
+     */
     public static void filterDB() {
         filteredDatabase.clear();
 
@@ -94,6 +86,11 @@ public class MapPage extends AppCompatActivity implements OnMapReadyCallback {
     public static class DatePickerFragment extends DialogFragment
             implements DatePickerDialog.OnDateSetListener {
 
+        /**
+         * Default implementation of DatePickerFragment
+         * @param savedInstanceState contains the saved data if this activity is returning from the background
+         * @return the created DatePickerDialog
+         */
         @Override
         public Dialog onCreateDialog(Bundle savedInstanceState) {
             // Use the current date as the default date in the picker
@@ -106,6 +103,13 @@ public class MapPage extends AppCompatActivity implements OnMapReadyCallback {
             return new DatePickerDialog(getActivity(), this, year, month, day);
         }
 
+        /**
+         * Provides the ability to act on the DatePicker information when it is set
+         * @param view the DatePicker just used
+         * @param year the year selected
+         * @param month the month selected
+         * @param day the day selected
+         */
         public void onDateSet(DatePicker view, int year, int month, int day) {
             // Do something with the date chosen by the user
 
@@ -115,6 +119,11 @@ public class MapPage extends AppCompatActivity implements OnMapReadyCallback {
     }
 
     public static class StartDatePickerFragment extends DatePickerFragment{
+        /**
+         * DatePickerFragment set to the default start date
+         * @param savedInstanceState contains the saved data if this activity is returning from the background
+         * @return the created DatePickerDialog
+         */
         @Override
         public Dialog onCreateDialog(Bundle savedInstanceState) {
             // Use the current date as the default date in the picker
@@ -126,6 +135,14 @@ public class MapPage extends AppCompatActivity implements OnMapReadyCallback {
             // Create a new instance of DatePickerDialog and return it
             return new DatePickerDialog(getActivity(), this, year, month, day);
         }
+
+        /**
+         * Sets startInt to the selected date
+         * @param view the DatePicker just used
+         * @param year the year selected
+         * @param month the month selected
+         * @param day the day selected
+         */
         @Override
         public void onDateSet(DatePicker view, int year, int month, int day) {
             super.onDateSet(view, year, month, day);
@@ -136,6 +153,13 @@ public class MapPage extends AppCompatActivity implements OnMapReadyCallback {
     }
 
     public static class EndDatePickerFragment extends DatePickerFragment{
+        /**
+         * Sets endInt to the selected date
+         * @param view the DatePicker just used
+         * @param year the year selected
+         * @param month the month selected
+         * @param day the day selected
+         */
         @Override
         public void onDateSet(DatePicker view, int year, int month, int day) {
             super.onDateSet(view, year, month, day);
