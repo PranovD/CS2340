@@ -3,46 +3,22 @@ package com.example.jay.u_dirty_rat;
 import android.util.Log;
 
 
-import android.animation.Animator;
-import android.animation.AnimatorListenerAdapter;
-import android.annotation.TargetApi;
-import android.app.ProgressDialog;
-import android.content.Context;
-import android.content.SharedPreferences;
-import android.content.pm.PackageManager;
 import android.support.annotation.NonNull;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
-import android.app.LoaderManager.LoaderCallbacks;
 
-import android.content.CursorLoader;
-import android.content.Loader;
-import android.database.Cursor;
-import android.net.Uri;
-import android.os.AsyncTask;
+
 import android.content.Intent;
 
-import android.os.Build;
 import android.os.Bundle;
-import android.provider.ContactsContract;
 import android.text.TextUtils;
-import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.view.inputmethod.EditorInfo;
-import android.widget.ArrayAdapter;
-import android.widget.AutoCompleteTextView;
+
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
-import android.widget.ProgressBar;
-import android.widget.TextView;
-import android.widget.Toast;
 
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.util.ArrayList;
-import java.util.List;
+import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -50,6 +26,10 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
+/**
+ * Registers users and puts them into the Fire base database
+ * Created by Team TBD
+ */
 
 public class RegistrationActivity extends AppCompatActivity {
 
@@ -69,7 +49,7 @@ public class RegistrationActivity extends AppCompatActivity {
         usernameInput = (EditText) findViewById(R.id.username_registration_input);
         passwordInput = (EditText) findViewById(R.id.password_registration_input);
         adminInput = (CheckBox) findViewById(R.id.admin);
-        // Firebase initialize auth
+        // Fire base initialize auth
         mAuth = FirebaseAuth.getInstance();
         mAuthListener = new FirebaseAuth.AuthStateListener() {
             @Override
@@ -120,7 +100,7 @@ public class RegistrationActivity extends AppCompatActivity {
 
     /**
      * check validity of the username.
-     * @param in
+     * @param in the username that has been input
      * @return boolean value. return true if it is valid.
      */
     public boolean isUsernameValid(String in) {
@@ -148,23 +128,23 @@ public class RegistrationActivity extends AppCompatActivity {
         String password = passwordInput.getText().toString().trim();
         boolean isAdmin = adminInput.isChecked();
 
-        /**
-         * Checks to make sure fields are filled out correctly
-         */
+
+         // Checks to make sure fields are filled out correctly
+
         if(TextUtils.isEmpty(email)) {
             Toast.makeText(this, "Please enter a username", Toast.LENGTH_SHORT).show();
             return;
         }
-        /**
-         * Checks to make sure fields are filled out correctly
-         */
+
+         // Checks to make sure fields are filled out correctly
+
         if(TextUtils.isEmpty(password)) {
             Toast.makeText(this, "Please enter a password", Toast.LENGTH_SHORT).show();
             return;
         }
-        /**
-         * Checks if email is in right format.
-         */
+
+        //  Checks if email is in right format.
+
         if(!isUsernameValid(email)) {
             Toast.makeText(this, "Username is invalid type.", Toast.LENGTH_SHORT).show();
             return;
