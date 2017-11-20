@@ -13,18 +13,15 @@
 
     <!-- Login progress -->
     <TextView
-        android:id="@+id/textView5"
         android:layout_width="match_parent"
         android:layout_height="31dp"
         android:text="@string/registerInstruction" />
 
     <ScrollView
-        android:id="@+id/registration_form"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
         <LinearLayout
-            android:id="@+id/email_registration_form"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"

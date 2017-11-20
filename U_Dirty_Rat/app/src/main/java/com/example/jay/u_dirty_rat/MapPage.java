@@ -40,19 +40,19 @@ public class MapPage extends AppCompatActivity implements OnMapReadyCallback {
     private static final String TAG = "MapActivity";
     public static Rat selected;
     public static int reportCounter = 0;
-    public static int startInt = 19690720;
-    public static int endInt = 20171031;
-    public static List filteredDatabase = new Stack();
+    private static int startInt = 19690720;
+    private static int endInt = 20171031;
+    private static final List filteredDatabase = new Stack();
     // public DatabaseReference reports;
 
     /**
      * Updates filteredDatabase with data in the current date range
      */
-    public static void filterDB() {
+    private static void filterDB() {
         filteredDatabase.clear();
 
         for(int i = 0; i < database.size(); i++) {
-            Rat rat = (Rat) database.get(i);
+            Rat rat = database.get(i);
             Log.d(TAG, rat.toString());
             String date = rat.getDate();
 
@@ -67,13 +67,12 @@ public class MapPage extends AppCompatActivity implements OnMapReadyCallback {
                 Log.d(TAG,"Date: "+ formattedDate.toString());
                 Log.d(TAG,String.valueOf(endInt)+"End Date: "+ endFilter.toString());
                 if (!(formattedDate.compareTo(endFilter) > 0 || formattedDate.compareTo(startFilter) < 0)) {
+                    //noinspection unchecked
                     filteredDatabase.add(rat);
-                    if (rat != null) {
-                        map.addMarker(new MarkerOptions()
-                                .position(new LatLng(rat.getLatitude(), rat.getLongitude()))
-                                .title(Integer.toString(rat.getUniqueKey()))
-                                .snippet(rat.getDate()));
-                    }
+                    map.addMarker(new MarkerOptions()
+                            .position(new LatLng(rat.getLatitude(), rat.getLongitude()))
+                            .title(Integer.toString(rat.getUniqueKey()))
+                            .snippet(rat.getDate()));
                 }
             } catch (ParseException e) {
                 Log.d(TAG,"Error parsing date: "+ e.toString());
@@ -119,6 +118,7 @@ public class MapPage extends AppCompatActivity implements OnMapReadyCallback {
 
     }
 
+    @SuppressWarnings("UnusedAssignment")
     public static class StartDatePickerFragment extends DatePickerFragment{
         /**
          * DatePickerFragment set to the default start date

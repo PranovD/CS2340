@@ -17,21 +17,21 @@ public class JUnitJayP {
     public void containsTest_isCorrect() throws Exception {
         String password = "password";
         String email = "6jaypatel@gmail.com";
-        Assert.assertEquals(true, userDB.isCorrectPassword(email, password));
+        Assert.assertEquals(true, UserDB.isCorrectPassword(email, password));
     }
 
     @Test
     public void containsTest_noPassword() throws Exception {
         String password = "";
         String email = "6jaypatel@gmail.com";
-        Assert.assertEquals(false, userDB.isCorrectPassword(email, password));
+        Assert.assertEquals(false, UserDB.isCorrectPassword(email, password));
     }
 
     @Test
     public void containsTest_isIncorrect() throws Exception {
         String password = "pass";
         String email = "6jaypatel@gmail.com";
-        Assert.assertEquals(false, userDB.isCorrectPassword(email, password));
+        Assert.assertEquals(false, UserDB.isCorrectPassword(email, password));
     }
 
 

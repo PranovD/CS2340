@@ -13,18 +13,18 @@ public class JUnitAustinD {
     @Test
     public void containsTest_isCorrect() throws Exception {
         String email = "aaustin.d@gmail.com";
-        Assert.assertEquals(true, db.contains(email));
+        Assert.assertEquals(true, UserDB.contains(email));
     }
 
     @Test
     public void containsTest_noEmail() throws Exception {
         String email = "";
-        Assert.assertEquals(false, db.contains(email));
+        Assert.assertEquals(false, UserDB.contains(email));
     }
 
     @Test
     public void containsTest_isIncorrect() throws Exception {
         String email = "aaustind@gmail.com";
-        Assert.assertEquals(false, db.contains(email));
+        Assert.assertEquals(false, UserDB.contains(email));
     }
 }

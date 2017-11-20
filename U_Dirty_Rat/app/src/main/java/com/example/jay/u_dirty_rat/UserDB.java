@@ -9,9 +9,9 @@ import java.util.ArrayList;
 public class UserDB {
 
     private static UserDB INSTANCE = null;
-    private static ArrayList<String> emails = new ArrayList<>(8);
-    private static ArrayList<String> passwords = new ArrayList<>(8);
-    private static ArrayList<Boolean> areAdmins = new ArrayList<>(8);
+    private static final ArrayList<String> emails = new ArrayList<>(8);
+    private static final ArrayList<String> passwords = new ArrayList<>(8);
+    private static final ArrayList<Boolean> areAdmins = new ArrayList<>(8);
 
     private UserDB() {}
 

@@ -25,7 +25,7 @@ public class Rat {
         this.uniqueKey = -1;
         this.date = "TBD";
         this.locationType = "TBD";
-        this.incidentZip = 00000;
+        this.incidentZip = 0;
         this.incidentAddress = "TBD";
         this.city = "TBD";
         this.borough = "TBD";

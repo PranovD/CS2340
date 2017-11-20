@@ -3,7 +3,6 @@ package com.example.jay.u_dirty_rat;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
@@ -14,7 +13,7 @@ import static java.lang.Integer.parseInt;
 
 public class ReportingActivity extends AppCompatActivity {
 
-    static Rat addThis;
+    private static Rat addThis;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,38 +26,30 @@ public class ReportingActivity extends AppCompatActivity {
         EditText incidentAddress = (EditText) findViewById(R.id.inciAddrInput);
         EditText city = (EditText) findViewById(R.id.cityInput);
         EditText borough = (EditText) findViewById(R.id.boroInput);
-        EditText latitude = (EditText) findViewById(R.id.laditInput);
-        EditText longitude = (EditText) findViewById(R.id.longitInput);
+        EditText latitude = (EditText) findViewById(R.id.latInput);
+        EditText longitude = (EditText) findViewById(R.id.longInput);
 
         Button submitButton = (Button) findViewById(R.id.submitButton);
         Button cancelButton = (Button) findViewById(R.id.cancelButton);
 
-        submitButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                addThis = new Rat(
-                        reportCounter,
-                        date.getText().toString(),
-                        locationType.getText().toString(),
-                        parseInt(incidentZip.getText().toString()),
-                        incidentAddress.getText().toString(),
-                        city.getText().toString(),
-                        borough.getText().toString(),
-                        parseDouble(latitude.getText().toString()),
-                        parseDouble(longitude.getText().toString())
-                );
-                database.add(1,addThis);
-                reportCounter++;
-                startActivity(new Intent(ReportingActivity.this, MainPage.class));
-            }
+        submitButton.setOnClickListener(view -> {
+            addThis = new Rat(
+                    reportCounter,
+                    date.getText().toString(),
+                    locationType.getText().toString(),
+                    parseInt(incidentZip.getText().toString()),
+                    incidentAddress.getText().toString(),
+                    city.getText().toString(),
+                    borough.getText().toString(),
+                    parseDouble(latitude.getText().toString()),
+                    parseDouble(longitude.getText().toString())
+            );
+            database.add(1,addThis);
+            reportCounter++;
+            startActivity(new Intent(ReportingActivity.this, MainPage.class));
         });
 
-        cancelButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(ReportingActivity.this,MainPage.class));
-            }
-        });
+        cancelButton.setOnClickListener(view -> startActivity(new Intent(ReportingActivity.this,MainPage.class)));
 
 
     }

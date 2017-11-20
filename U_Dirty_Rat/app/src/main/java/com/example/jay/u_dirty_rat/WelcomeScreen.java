@@ -1,11 +1,10 @@
 package com.example.jay.u_dirty_rat;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
-import android.view.View;
 import android.widget.Button;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -28,7 +27,8 @@ public class WelcomeScreen extends AppCompatActivity {
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
     private static final String TAG = "WelcomeScreen";
-    public static List<Rat> database = new Stack();
+    @SuppressWarnings("unchecked")
+    public static final List<Rat> database = new Stack();
 
 
     @Override
@@ -43,7 +43,6 @@ public class WelcomeScreen extends AppCompatActivity {
                 (new InputStreamReader(inputStream));
         try {
             String rawReport = reader.readLine();
-            int counter = 0;
             while(rawReport != null) { //while there is a report,
                 String[] pieces = rawReport.split(",",-1);
                 try {
@@ -59,7 +58,7 @@ public class WelcomeScreen extends AppCompatActivity {
                             parseDouble(pieces[8])); //create rat class object (report).
                     database.add(report); //adding object to the database(stack).
                 }
-                catch (NumberFormatException nfe) {
+                catch (NumberFormatException ignored) {
 
                 }
                 //reports.child(pieces[1]).setValue(report);
@@ -67,7 +66,7 @@ public class WelcomeScreen extends AppCompatActivity {
 
                 rawReport = reader.readLine();
             }
-        } catch (IOException e) {
+        } catch (IOException ignored) {
         }
         //creating button objects to use as action listener.
         Button loginButton = (Button) findViewById(R.id.LogInButton);
@@ -75,42 +74,29 @@ public class WelcomeScreen extends AppCompatActivity {
         Log.d(TAG, "Created Welcome Screen");
         mAuth = FirebaseAuth.getInstance();
         //Firebase Checking if user is already logged in and track log in status
-        mAuthListener = new FirebaseAuth.AuthStateListener() {
-            @Override
-            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
-                FirebaseUser user = firebaseAuth.getCurrentUser();
-                if (user != null) {
-                    // User is signed in
-                    Log.d(TAG, "onAuthStateChanged:signed_in:" + user.getUid());
-                    //startActivity(new Intent(WelcomeScreen.this, MainPage.class));
-                } else {
-                    // User is signed out
-                    Log.d(TAG, "onAuthStateChanged:signed_out");
-                }
-                // ...
-                Log.d(TAG, "Inside mAuthListener");
+        mAuthListener = firebaseAuth -> {
+            FirebaseUser user = firebaseAuth.getCurrentUser();
+            if (user != null) {
+                // User is signed in
+                Log.d(TAG, "onAuthStateChanged:signed_in:" + user.getUid());
+                //startActivity(new Intent(WelcomeScreen.this, MainPage.class));
+            } else {
+                // User is signed out
+                Log.d(TAG, "onAuthStateChanged:signed_out");
             }
-
+            // ...
+            Log.d(TAG, "Inside mAuthListener");
         };
         Log.d(TAG, "Outside mAuthListener");
 
         //set the listener and intent.
-        loginButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(WelcomeScreen.this, LoginActivity.class));
-            }
-        });
+        loginButton.setOnClickListener(view -> startActivity(new Intent(WelcomeScreen.this, LoginActivity.class)));
 
-        registerButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(WelcomeScreen.this, RegistrationActivity.class));
-            }
-        });
+        registerButton.setOnClickListener(view -> startActivity(new Intent(WelcomeScreen.this, RegistrationActivity.class)));
 
     }
 
+    @SuppressLint("SimpleDateFormat")
     public static Date parseDate(String date) {
         try {
             return new SimpleDateFormat("MM/dd/yy", Locale.US).parse(date);
