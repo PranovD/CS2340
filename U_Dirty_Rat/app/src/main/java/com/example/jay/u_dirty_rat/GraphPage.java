@@ -17,7 +17,7 @@ import static com.example.jay.u_dirty_rat.WelcomeScreen.database;
 
 public class GraphPage extends AppCompatActivity {
 
-    BarGraphSeries<DataPoint> series;
+    private BarGraphSeries<DataPoint> series;
 
     /**
      * Creates the activity. Initializes an empty graph with the correct layout and formatting
