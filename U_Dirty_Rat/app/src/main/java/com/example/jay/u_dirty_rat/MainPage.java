@@ -13,12 +13,14 @@ import android.widget.ListView;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
+
 
 import static com.example.jay.u_dirty_rat.WelcomeScreen.database;
 
-
+/**
+ * The main page of the app.
+ * It show all the functions that are available.
+ */
 public class MainPage extends AppCompatActivity {
 
     private FirebaseAuth mAuth;
@@ -26,14 +28,13 @@ public class MainPage extends AppCompatActivity {
     private static final String TAG = "MainActivity";
     public static Rat selected;
     public static int reportCounter = 0;
-    // public DatabaseReference reports;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_page);
 
-        //Firebase Checking if user is already logged in and track log in status
+        //Fire base Checking if user is already logged in and track log in status
         mAuthListener = new FirebaseAuth.AuthStateListener() {
             @Override
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
@@ -62,10 +63,6 @@ public class MainPage extends AppCompatActivity {
             }
         });
 
-        //loading in CSV file as an array list of rat class objects.
-        //json version
-        // reports = FirebaseDatabase.getInstance().getReference();
-
 
         //display reports by using database and implementing list view widget.
         ListView recentList = (ListView) findViewById(R.id.recentList);
@@ -77,9 +74,8 @@ public class MainPage extends AppCompatActivity {
         recentList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                int position = i;
                 //create selected report as a static variable so that I can use this on view page.
-                selected = (Rat) recentList.getItemAtPosition(position);
+                selected = (Rat) recentList.getItemAtPosition(i);
                 startActivity(new Intent(MainPage.this, ViewSingleReport.class));
             }
         });
