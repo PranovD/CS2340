@@ -26,6 +26,7 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 import java.util.Stack;
 import static com.example.jay.u_dirty_rat.WelcomeScreen.database;
 
@@ -55,8 +56,8 @@ public class MapPage extends AppCompatActivity implements OnMapReadyCallback {
             Log.d(TAG, rat.toString());
             String date = rat.getDate();
 
-            SimpleDateFormat formatRat = new SimpleDateFormat("dd/MM/yy");
-            SimpleDateFormat formatFilter = new SimpleDateFormat("yyyyMMdd");
+            SimpleDateFormat formatRat = new SimpleDateFormat("dd/MM/yy", Locale.US);
+            SimpleDateFormat formatFilter = new SimpleDateFormat("yyyyMMdd", Locale.US);
             try {
 
                 Date formattedDate = formatRat.parse(date);
