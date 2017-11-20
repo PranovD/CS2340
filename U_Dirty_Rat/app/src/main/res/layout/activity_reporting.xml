@@ -1,132 +1,115 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.example.jay.u_dirty_rat.ReportingActivity">
 
-    <RelativeLayout
-        android:layout_width="344dp"
-        android:layout_height="495dp"
-        tools:layout_editor_absoluteX="8dp"
-        tools:layout_editor_absoluteY="8dp">
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        tools:layout_editor_absoluteY="0dp"
+        tools:layout_editor_absoluteX="0dp">
+
+        <EditText
+            android:id="@+id/locTypeInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:ems="10"
+            android:hint="@string/locationType"
+            android:inputType="textCapCharacters" />
+
+        <EditText
+            android:id="@+id/inciZipInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="17dp"
+            android:ems="10"
+            android:hint="@string/incidentZip"
+            android:inputType="number" />
+
+        <EditText
+            android:id="@+id/inciAddrInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:ems="10"
+            android:hint="@string/incidentAddress"
+            android:inputType="text" />
+
+        <EditText
+            android:id="@+id/cityInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="@string/city"
+            android:inputType="textPersonName" />
+
+        <EditText
+            android:id="@+id/boroInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="11dp"
+            android:ems="10"
+            android:hint="@string/borough"
+            android:inputType="textCapCharacters" />
+
+        <EditText
+            android:id="@+id/laditInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="50dp"
+            android:ems="10"
+            android:hint="@string/latitude"
+            android:inputType="numberDecimal" />
+
+        <EditText
+            android:id="@+id/longitInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="@string/longitude"
+            android:inputType="numberDecimal" />
+
+        <EditText
+            android:id="@+id/dateInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="@string/date"
+            android:inputType="date|time" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:orientation="horizontal"
+        tools:layout_editor_absoluteX="97dp"
+        tools:layout_editor_absoluteY="460dp">
 
         <Button
             android:id="@+id/submitButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Submit"
-            android:layout_alignParentBottom="true"
-            android:layout_toRightOf="@+id/textView3"
-            android:layout_toEndOf="@+id/textView3"
             android:layout_marginLeft="11dp"
-            android:layout_marginStart="11dp" />
+            android:layout_marginStart="11dp"
+            android:layout_weight="1"
+            android:text="@string/submit" />
 
         <Button
             android:id="@+id/cancelButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
             android:layout_marginEnd="39dp"
             android:layout_marginRight="39dp"
-            android:text="CANCEL" />
+            android:layout_weight="1"
+            android:text="@string/cancel" />
 
-        <EditText
-            android:id="@+id/dateInput"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:ems="10"
-            android:hint="Date"
-            android:inputType="date|time" />
+    </LinearLayout>
 
-        <EditText
-            android:id="@+id/longitInput"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_above="@+id/submitButton"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_marginBottom="19dp"
-            android:ems="10"
-            android:hint="Longitude"
-            android:inputType="numberDecimal" />
-
-        <EditText
-            android:id="@+id/laditInput"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignBottom="@+id/longitInput"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_marginBottom="50dp"
-            android:ems="10"
-            android:hint="Latitude"
-            android:inputType="numberDecimal" />
-
-        <EditText
-            android:id="@+id/boroInput"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_above="@+id/laditInput"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_marginBottom="11dp"
-            android:ems="10"
-            android:hint="Borough"
-            android:inputType="textCapCharacters" />
-
-        <EditText
-            android:id="@+id/cityInput"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_centerVertical="true"
-            android:ems="10"
-            android:hint="CITY"
-            android:inputType="textPersonName" />
-
-        <EditText
-            android:id="@+id/inciAddrInput"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_above="@+id/cityInput"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_marginBottom="10dp"
-            android:ems="10"
-            android:hint="Incident Address"
-            android:inputType="text" />
-
-        <EditText
-            android:id="@+id/inciZipInput"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_above="@+id/inciAddrInput"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_marginBottom="17dp"
-            android:ems="10"
-            android:hint="Incident Zip"
-            android:inputType="number" />
-
-        <EditText
-            android:id="@+id/locTypeInput"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_below="@+id/dateInput"
-            android:layout_marginTop="10dp"
-            android:ems="10"
-            android:hint="Location Type"
-            android:inputType="textCapCharacters" />
-
-    </RelativeLayout>
 </android.support.constraint.ConstraintLayout>

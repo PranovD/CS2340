@@ -18,7 +18,7 @@
             android:layout_alignStart="@+id/textView"
             android:layout_below="@+id/textView"
             android:layout_marginTop="114dp"
-            android:text="Sign In"
+            android:text="@string/title_activity_login"
             tools:layout_editor_absoluteX="36dp"
             tools:layout_editor_absoluteY="324dp" />
 
@@ -29,7 +29,7 @@
             android:layout_alignTop="@+id/LogInButton"
             android:layout_toEndOf="@+id/LogInButton"
             android:layout_toRightOf="@+id/LogInButton"
-            android:text="Register"
+            android:text="@string/register"
             tools:layout_editor_absoluteX="36dp"
             tools:layout_editor_absoluteY="324dp" />
 
@@ -40,7 +40,7 @@
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="82dp"
-            android:text='Welcome to "U Dirty Rat"!'
+            android:text="@string/welcome"
             android:textSize="36sp"
             tools:layout_editor_absoluteX="82dp"
             tools:layout_editor_absoluteY="160dp" />

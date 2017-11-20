@@ -14,7 +14,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Start Date"
+            android:text="@string/startDate"
             android:onClick="showDatePickerDialogStart" />
 
         <Button
@@ -22,7 +22,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="End Date"
+            android:text="@string/endDate"
             android:onClick="showDatePickerDialogEnd" />
 
         </LinearLayout>

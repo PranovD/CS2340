@@ -16,7 +16,7 @@
         android:id="@+id/textView5"
         android:layout_width="match_parent"
         android:layout_height="31dp"
-        android:text="Register a new account" />
+        android:text="@string/registerInstruction" />
 
     <ScrollView
         android:id="@+id/registration_form"
@@ -38,7 +38,7 @@
                     android:id="@+id/username_registration_input"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Username"
+                    android:hint="@string/prompt_email"
                     android:inputType="textEmailAddress"
                     android:maxLines="1" />
 
@@ -52,7 +52,7 @@
                     android:id="@+id/password_registration_input"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Password"
+                    android:hint="@string/prompt_password"
                     android:imeActionId="@+id/login"
                     android:imeActionLabel="@string/action_sign_in_short"
                     android:imeOptions="actionUnspecified"
@@ -64,8 +64,8 @@
             <CheckBox
                 android:id="@+id/admin"
                 android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:text="Administrator"
+                android:layout_height="0dp"
+                android:text="@string/admin"
                 android:layout_weight="1.88" />
 
             <Button
@@ -74,7 +74,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:text="Register"
+                android:text="@string/register"
                 android:textStyle="bold" />
 
             <Button
@@ -82,7 +82,7 @@
                 style="@style/Widget.AppCompat.Button"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Cancel"
+                android:text="@string/cancel"
                 android:textStyle="bold" />
         </LinearLayout>
     </ScrollView>

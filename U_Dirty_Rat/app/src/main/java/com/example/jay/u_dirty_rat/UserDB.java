@@ -13,7 +13,7 @@ public class UserDB {
     private static ArrayList<String> passwords = new ArrayList<>(8);
     private static ArrayList<Boolean> areAdmins = new ArrayList<>(8);
 
-    private UserDB() {};
+    private UserDB() {}
 
     /**
      * brings user database from firebase.
