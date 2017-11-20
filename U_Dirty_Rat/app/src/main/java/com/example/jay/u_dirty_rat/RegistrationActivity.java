@@ -107,7 +107,7 @@ public class RegistrationActivity extends AppCompatActivity {
     private void registerUser() {
         String email = usernameInput.getText().toString().trim();
         String password = passwordInput.getText().toString().trim();
-        boolean isAdmin = adminInput.isChecked();
+        @SuppressWarnings("UnusedAssignment") boolean isAdmin = adminInput.isChecked();
 
 
          // Checks to make sure fields are filled out correctly

@@ -1,5 +1,6 @@
 package com.example.jay.u_dirty_rat;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -94,6 +95,7 @@ public class WelcomeScreen extends AppCompatActivity {
 
     }
 
+    @SuppressLint("SimpleDateFormat")
     public static Date parseDate(String date) {
         try {
             return new SimpleDateFormat("MM/dd/yy").parse(date);
