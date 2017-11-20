@@ -18,7 +18,7 @@ public class JUnitPranovD {
     @Test
     public void parseDateTest_correct() throws Exception {
         String date = "09/04/12";
-        Date answer = new Date(1346731200000l);
+        Date answer = new Date(1346731200000L);
         Assert.assertEquals(answer,r.parseDate(date));
     }
 
