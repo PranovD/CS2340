@@ -41,12 +41,7 @@ public class ViewSingleReport extends AppCompatActivity {
         content9.setText(String.valueOf(selected.getLongitude()));
 
         Button backButton = (Button) findViewById(R.id.backButton);
-        backButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(ViewSingleReport.this, MainPage.class));
-            }
-        });
+        backButton.setOnClickListener(view -> startActivity(new Intent(ViewSingleReport.this, MainPage.class)));
 
     }
 }

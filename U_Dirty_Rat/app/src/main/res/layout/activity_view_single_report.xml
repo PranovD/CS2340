@@ -100,7 +100,7 @@
             android:text="@string/incidentAddress" />
 
         <TextView
-            android:id="@+id/incAddrContent"
+            android:id="@+id/incAddressContent"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
@@ -114,7 +114,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
-            android:layout_below="@+id/incAddrContent"
+            android:layout_below="@+id/incAddressContent"
             android:layout_marginTop="13dp"
             android:text="@string/city" />
 
@@ -138,7 +138,7 @@
             android:text="@string/borough" />
 
         <TextView
-            android:id="@+id/boroContent"
+            android:id="@+id/boroughContent"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
@@ -152,7 +152,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
-            android:layout_below="@+id/boroContent"
+            android:layout_below="@+id/boroughContent"
             android:layout_marginTop="18dp"
             android:text="@string/latitude" />
 

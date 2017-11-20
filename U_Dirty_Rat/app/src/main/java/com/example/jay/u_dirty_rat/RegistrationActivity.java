@@ -51,36 +51,23 @@ public class RegistrationActivity extends AppCompatActivity {
         adminInput = (CheckBox) findViewById(R.id.admin);
         // Fire base initialize auth
         mAuth = FirebaseAuth.getInstance();
-        mAuthListener = new FirebaseAuth.AuthStateListener() {
-            @Override
-            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
-                FirebaseUser user = firebaseAuth.getCurrentUser();
-                if (user != null) {
-                    // User is signed in
-                    Log.d(TAG, "onAuthStateChanged:signed_in:" + user.getUid());
-                    startActivity(new Intent(RegistrationActivity.this, MainPage.class));
-                } else {
-                    // User is signed out
-                    Log.d(TAG, "onAuthStateChanged:signed_out");
-                }
+        mAuthListener = firebaseAuth -> {
+            FirebaseUser user = firebaseAuth.getCurrentUser();
+            if (user != null) {
+                // User is signed in
+                Log.d(TAG, "onAuthStateChanged:signed_in:" + user.getUid());
+                startActivity(new Intent(RegistrationActivity.this, MainPage.class));
+            } else {
+                // User is signed out
+                Log.d(TAG, "onAuthStateChanged:signed_out");
             }
         };
         Button cancelButton = (Button) findViewById(R.id.registration_cancel_button);
 
-        cancelButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(RegistrationActivity.this, WelcomeScreen.class));
-            }
-        });
+        cancelButton.setOnClickListener(view -> startActivity(new Intent(RegistrationActivity.this, WelcomeScreen.class)));
 
         Button registrationButton = (Button) findViewById(R.id.registration_button);
-        registrationButton.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                registerUser();
-            }
-        });
+        registrationButton.setOnClickListener(view -> registerUser());
     }
 
     @Override
@@ -151,18 +138,15 @@ public class RegistrationActivity extends AppCompatActivity {
         }
 
         mAuth.createUserWithEmailAndPassword(email, password)
-                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        Log.d(TAG, "createUserWithEmail:onComplete:" + task.isSuccessful());
+                .addOnCompleteListener(this, task -> {
+                    Log.d(TAG, "createUserWithEmail:onComplete:" + task.isSuccessful());
 
-                        // If sign in fails, display a message to the user. If sign in succeeds
-                        // the auth state listener will be notified and logic to handle the
-                        // signed in user can be handled in the listener.
-                        if (!task.isSuccessful()) {
-                            Toast.makeText(RegistrationActivity.this, R.string.auth_failed,
-                                    Toast.LENGTH_SHORT).show();
-                        }
+                    // If sign in fails, display a message to the user. If sign in succeeds
+                    // the auth state listener will be notified and logic to handle the
+                    // signed in user can be handled in the listener.
+                    if (!task.isSuccessful()) {
+                        Toast.makeText(RegistrationActivity.this, R.string.auth_failed,
+                                Toast.LENGTH_SHORT).show();
                     }
                 });
     }

@@ -35,19 +35,16 @@ public class MainPage extends AppCompatActivity {
         setContentView(R.layout.activity_main_page);
 
         //Fire base Checking if user is already logged in and track log in status
-        mAuthListener = new FirebaseAuth.AuthStateListener() {
-            @Override
-            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
-                FirebaseUser user = firebaseAuth.getCurrentUser();
-                if (user != null) {
-                    // User is signed in
-                    Log.d(TAG, "onAuthStateChanged:signed_in:" + user.getUid());
-                } else {
-                    // User is signed out
-                    Log.d(TAG, "onAuthStateChanged:signed_out");
-                }
-                // ...
+        mAuthListener = firebaseAuth -> {
+            FirebaseUser user = firebaseAuth.getCurrentUser();
+            if (user != null) {
+                // User is signed in
+                Log.d(TAG, "onAuthStateChanged:signed_in:" + user.getUid());
+            } else {
+                // User is signed out
+                Log.d(TAG, "onAuthStateChanged:signed_out");
             }
+            // ...
         };
         mAuth = FirebaseAuth.getInstance();
 
@@ -55,12 +52,9 @@ public class MainPage extends AppCompatActivity {
         Button logOutButton = (Button) findViewById(R.id.logout);
 
         //action listener and intent
-        logOutButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                mAuth.signOut();
-                startActivity(new Intent(MainPage.this, WelcomeScreen.class));
-            }
+        logOutButton.setOnClickListener(view -> {
+            mAuth.signOut();
+            startActivity(new Intent(MainPage.this, WelcomeScreen.class));
         });
 
 
@@ -71,13 +65,10 @@ public class MainPage extends AppCompatActivity {
 
         recentList.setAdapter(arrayAdapter);
 
-        recentList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                //create selected report as a static variable so that I can use this on view page.
-                selected = (Rat) recentList.getItemAtPosition(i);
-                startActivity(new Intent(MainPage.this, ViewSingleReport.class));
-            }
+        recentList.setOnItemClickListener((adapterView, view, i, l) -> {
+            //create selected report as a static variable so that I can use this on view page.
+            selected = (Rat) recentList.getItemAtPosition(i);
+            startActivity(new Intent(MainPage.this, ViewSingleReport.class));
         });
 
         Button reportButton = (Button) findViewById(R.id.reportButton);
@@ -86,29 +77,11 @@ public class MainPage extends AppCompatActivity {
 
         Button graphButton = (Button) findViewById(R.id.graphButton);
 
-        reportButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
+        reportButton.setOnClickListener(view -> startActivity(new Intent(MainPage.this, ReportingActivity.class)));
 
-                startActivity(new Intent(MainPage.this, ReportingActivity.class));
-            }
-        });
+        mapButton.setOnClickListener(view -> startActivity(new Intent(MainPage.this, MapPage.class)));
 
-        mapButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                startActivity(new Intent(MainPage.this, MapPage.class));
-            }
-        });
-
-        graphButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                startActivity(new Intent(MainPage.this, GraphPage.class));
-            }
-        });
+        graphButton.setOnClickListener(view -> startActivity(new Intent(MainPage.this, GraphPage.class)));
 
 
     }

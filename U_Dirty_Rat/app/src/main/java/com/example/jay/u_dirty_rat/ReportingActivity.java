@@ -33,32 +33,24 @@ public class ReportingActivity extends AppCompatActivity {
         Button submitButton = (Button) findViewById(R.id.submitButton);
         Button cancelButton = (Button) findViewById(R.id.cancelButton);
 
-        submitButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                addThis = new Rat(
-                        reportCounter,
-                        date.getText().toString(),
-                        locationType.getText().toString(),
-                        parseInt(incidentZip.getText().toString()),
-                        incidentAddress.getText().toString(),
-                        city.getText().toString(),
-                        borough.getText().toString(),
-                        parseDouble(latitude.getText().toString()),
-                        parseDouble(longitude.getText().toString())
-                );
-                database.add(1,addThis);
-                reportCounter++;
-                startActivity(new Intent(ReportingActivity.this, MainPage.class));
-            }
+        submitButton.setOnClickListener(view -> {
+            addThis = new Rat(
+                    reportCounter,
+                    date.getText().toString(),
+                    locationType.getText().toString(),
+                    parseInt(incidentZip.getText().toString()),
+                    incidentAddress.getText().toString(),
+                    city.getText().toString(),
+                    borough.getText().toString(),
+                    parseDouble(latitude.getText().toString()),
+                    parseDouble(longitude.getText().toString())
+            );
+            database.add(1,addThis);
+            reportCounter++;
+            startActivity(new Intent(ReportingActivity.this, MainPage.class));
         });
 
-        cancelButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(ReportingActivity.this,MainPage.class));
-            }
-        });
+        cancelButton.setOnClickListener(view -> startActivity(new Intent(ReportingActivity.this,MainPage.class)));
 
 
     }

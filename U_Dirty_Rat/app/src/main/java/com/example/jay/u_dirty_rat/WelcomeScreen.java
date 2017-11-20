@@ -74,39 +74,25 @@ public class WelcomeScreen extends AppCompatActivity {
         Log.d(TAG, "Created Welcome Screen");
         mAuth = FirebaseAuth.getInstance();
         //Firebase Checking if user is already logged in and track log in status
-        mAuthListener = new FirebaseAuth.AuthStateListener() {
-            @Override
-            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
-                FirebaseUser user = firebaseAuth.getCurrentUser();
-                if (user != null) {
-                    // User is signed in
-                    Log.d(TAG, "onAuthStateChanged:signed_in:" + user.getUid());
-                    //startActivity(new Intent(WelcomeScreen.this, MainPage.class));
-                } else {
-                    // User is signed out
-                    Log.d(TAG, "onAuthStateChanged:signed_out");
-                }
-                // ...
-                Log.d(TAG, "Inside mAuthListener");
+        mAuthListener = firebaseAuth -> {
+            FirebaseUser user = firebaseAuth.getCurrentUser();
+            if (user != null) {
+                // User is signed in
+                Log.d(TAG, "onAuthStateChanged:signed_in:" + user.getUid());
+                //startActivity(new Intent(WelcomeScreen.this, MainPage.class));
+            } else {
+                // User is signed out
+                Log.d(TAG, "onAuthStateChanged:signed_out");
             }
-
+            // ...
+            Log.d(TAG, "Inside mAuthListener");
         };
         Log.d(TAG, "Outside mAuthListener");
 
         //set the listener and intent.
-        loginButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(WelcomeScreen.this, LoginActivity.class));
-            }
-        });
+        loginButton.setOnClickListener(view -> startActivity(new Intent(WelcomeScreen.this, LoginActivity.class)));
 
-        registerButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(WelcomeScreen.this, RegistrationActivity.class));
-            }
-        });
+        registerButton.setOnClickListener(view -> startActivity(new Intent(WelcomeScreen.this, RegistrationActivity.class)));
 
     }
 
