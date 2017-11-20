@@ -67,6 +67,7 @@ public class MapPage extends AppCompatActivity implements OnMapReadyCallback {
                 Log.d(TAG,"Date: "+ formattedDate.toString());
                 Log.d(TAG,String.valueOf(endInt)+"End Date: "+ endFilter.toString());
                 if (!(formattedDate.compareTo(endFilter) > 0 || formattedDate.compareTo(startFilter) < 0)) {
+                    //noinspection unchecked
                     filteredDatabase.add(rat);
                     map.addMarker(new MarkerOptions()
                             .position(new LatLng(rat.getLatitude(), rat.getLongitude()))

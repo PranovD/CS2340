@@ -25,6 +25,7 @@ public class WelcomeScreen extends AppCompatActivity {
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
     private static final String TAG = "WelcomeScreen";
+    @SuppressWarnings("unchecked")
     public static final List<Rat> database = new Stack();
 
 
