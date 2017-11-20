@@ -1,11 +1,8 @@
 package com.example.jay.u_dirty_rat;
 
-import android.util.Log;
-
 import org.junit.Assert;
 import org.junit.Test;
 
-import java.text.ParseException;
 import java.util.Date;
 
 

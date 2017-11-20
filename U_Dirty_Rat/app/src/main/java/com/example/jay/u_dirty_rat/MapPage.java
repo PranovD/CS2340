@@ -52,7 +52,7 @@ public class MapPage extends AppCompatActivity implements OnMapReadyCallback {
         filteredDatabase.clear();
 
         for(int i = 0; i < database.size(); i++) {
-            Rat rat = (Rat) database.get(i);
+            Rat rat = database.get(i);
             Log.d(TAG, rat.toString());
             String date = rat.getDate();
 

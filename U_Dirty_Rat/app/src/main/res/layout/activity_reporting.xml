@@ -93,15 +93,6 @@
         tools:layout_editor_absoluteY="460dp">
 
         <Button
-            android:id="@+id/submitButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="11dp"
-            android:layout_marginStart="11dp"
-            android:layout_weight="1"
-            android:text="@string/submit" />
-
-        <Button
             android:id="@+id/cancelButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -109,6 +100,15 @@
             android:layout_marginRight="39dp"
             android:layout_weight="1"
             android:text="@string/cancel" />
+
+        <Button
+            android:id="@+id/submitButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="11dp"
+            android:layout_marginStart="11dp"
+            android:layout_weight="1"
+            android:text="@string/submit" />
 
     </LinearLayout>
 

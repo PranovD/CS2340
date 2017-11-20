@@ -50,7 +50,7 @@ public class GraphPage extends AppCompatActivity {
                 int[] dataTable = new int[12];
                 if(selectedYear.length() == 2) {
                     for(int i = 0; i < database.size(); i++) {
-                        Rat rat = (Rat) database.get(i);
+                        Rat rat = database.get(i);
                         String date = rat.getDate();
                         String[] pieces = date.split("/",-1);
                         if (pieces.length == 3) {
