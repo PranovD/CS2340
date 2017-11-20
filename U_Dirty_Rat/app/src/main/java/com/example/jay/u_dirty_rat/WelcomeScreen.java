@@ -42,7 +42,6 @@ public class WelcomeScreen extends AppCompatActivity {
                 (new InputStreamReader(inputStream));
         try {
             String rawReport = reader.readLine();
-            int counter = 0;
             while(rawReport != null) { //while there is a report,
                 String[] pieces = rawReport.split(",",-1);
                 try {

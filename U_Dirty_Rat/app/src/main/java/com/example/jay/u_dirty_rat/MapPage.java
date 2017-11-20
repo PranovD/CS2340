@@ -68,12 +68,10 @@ public class MapPage extends AppCompatActivity implements OnMapReadyCallback {
                 Log.d(TAG,String.valueOf(endInt)+"End Date: "+ endFilter.toString());
                 if (!(formattedDate.compareTo(endFilter) > 0 || formattedDate.compareTo(startFilter) < 0)) {
                     filteredDatabase.add(rat);
-                    if (rat != null) {
-                        map.addMarker(new MarkerOptions()
-                                .position(new LatLng(rat.getLatitude(), rat.getLongitude()))
-                                .title(Integer.toString(rat.getUniqueKey()))
-                                .snippet(rat.getDate()));
-                    }
+                    map.addMarker(new MarkerOptions()
+                            .position(new LatLng(rat.getLatitude(), rat.getLongitude()))
+                            .title(Integer.toString(rat.getUniqueKey()))
+                            .snippet(rat.getDate()));
                 }
             } catch (ParseException e) {
                 Log.d(TAG,"Error parsing date: "+ e.toString());
@@ -119,6 +117,7 @@ public class MapPage extends AppCompatActivity implements OnMapReadyCallback {
 
     }
 
+    @SuppressWarnings("UnusedAssignment")
     public static class StartDatePickerFragment extends DatePickerFragment{
         /**
          * DatePickerFragment set to the default start date
