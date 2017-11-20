@@ -77,9 +77,8 @@ public class MainPage extends AppCompatActivity {
         recentList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                int position = i;
                 //create selected report as a static variable so that I can use this on view page.
-                selected = (Rat) recentList.getItemAtPosition(position);
+                selected = (Rat) recentList.getItemAtPosition(i);
                 startActivity(new Intent(MainPage.this, ViewSingleReport.class));
             }
         });
