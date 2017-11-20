@@ -4,6 +4,12 @@
     <string name="title_activity_login">Sign in</string>
     <string name="title_activity_registration">Sign up</string>
 
+    <!-- String related to graph -->
+    <string name="Type_Year">Year</string>
+    <string name="YYYY">yyyy</string>
+    <string name="Update">Update</string>
+    <string name="Back">back</string>
+
 
     <!-- Strings related to login -->
     <string name="prompt_email">Email</string>
