@@ -28,7 +28,7 @@ public class UserDB {
 
     /**
      * checks if the email is in the list
-     * @param email
+     * @param email the email to be checked
      * @return boolean value (true if the list contains it)
      */
     public static boolean contains(String email) {
@@ -37,8 +37,8 @@ public class UserDB {
 
     /**
      * checks if email and password match.
-     * @param email
-     * @param password
+     * @param email the email to be checked
+     * @param password the password to be checked
      * @return true if correct password for email is there.
      */
     public static boolean isCorrectPassword(String email, String password) {
@@ -47,9 +47,9 @@ public class UserDB {
 
     /**
      * add the user with input attribute to the list.
-     * @param email
-     * @param password
-     * @param isAdmin
+     * @param email the email to be added
+     * @param password the password to be added
+     * @param isAdmin the value that determines if a user is an admin or not
      */
     public static void add(String email, String password, boolean isAdmin) {
         emails.add(email);

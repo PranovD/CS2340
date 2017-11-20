@@ -37,15 +37,15 @@ public class Rat {
 
     /**
      * constructor with string inputs
-     * @param Unique_Key
-     * @param Date
-     * @param Location_Type
-     * @param Incident_Zip
-     * @param Incident_Address
-     * @param City
-     * @param Borough
-     * @param Latitude
-     * @param Longitude
+     * @param Unique_Key the unique key of the rat
+     * @param Date the date of the rat sighting
+     * @param Location_Type the location type of where the rat was sighted
+     * @param Incident_Zip the zip code of the rat sighting
+     * @param Incident_Address the address of the rat sighting
+     * @param City the city where the rat was spotted
+     * @param Borough the borough of the rat sighting
+     * @param Latitude the latitude of where the rat was spotted
+     * @param Longitude the longitude of where the rat was spotted
      */
     public Rat(int Unique_Key,String Date, String Location_Type,int Incident_Zip,String Incident_Address,
                String City,String Borough,double Latitude,double Longitude) {

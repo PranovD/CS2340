@@ -120,7 +120,7 @@ public class RegistrationActivity extends AppCompatActivity {
 
     /**
      * check validity of the username.
-     * @param in
+     * @param in the username to be checked
      * @return boolean value. return true if it is valid.
      */
     public boolean isUsernameValid(String in) {
@@ -148,23 +148,17 @@ public class RegistrationActivity extends AppCompatActivity {
         String password = passwordInput.getText().toString().trim();
         boolean isAdmin = adminInput.isChecked();
 
-        /**
-         * Checks to make sure fields are filled out correctly
-         */
+        // Checks to make sure fields are filled out correctly
         if(TextUtils.isEmpty(email)) {
             Toast.makeText(this, "Please enter a username", Toast.LENGTH_SHORT).show();
             return;
         }
-        /**
-         * Checks to make sure fields are filled out correctly
-         */
+        // Checks to make sure fields are filled out correctly
         if(TextUtils.isEmpty(password)) {
             Toast.makeText(this, "Please enter a password", Toast.LENGTH_SHORT).show();
             return;
         }
-        /**
-         * Checks if email is in right format.
-         */
+        // Checks if email is in right format
         if(!isUsernameValid(email)) {
             Toast.makeText(this, "Username is invalid type.", Toast.LENGTH_SHORT).show();
             return;
