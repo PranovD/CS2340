@@ -16,6 +16,9 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 import java.util.Stack;
 import static java.lang.Double.parseDouble;
@@ -106,6 +109,14 @@ public class WelcomeScreen extends AppCompatActivity {
             }
         });
 
+    }
+
+    public static Date parseDate(String date) {
+        try {
+            return new SimpleDateFormat("MM/dd/yy").parse(date);
+        } catch (ParseException e) {
+            return null;
+        }
     }
 
     @Override
