@@ -18,6 +18,19 @@
     <string name="report">REPORT</string>
     <string name="graph">Graph</string>
 
+    <!-- String related to view page -->
+    <string name="content">Content</string>
+    <string name="date">Date</string>
+    <string name="uniqueKey">Unique Key</string>
+    <string name="locationType">Location Type</string>
+    <string name="incidentZip">Incident Zip</string>
+    <string name="incidentAddress">Incident Address</string>
+    <string name="city">City</string>
+    <string name="borough">Borough</string>
+    <string name="latitude">Latitude</string>
+    <string name="longitude">Longitude</string>
+
+
     <!-- Strings related to login -->
     <string name="prompt_email">Email</string>
     <string name="prompt_password">Password (optional)</string>

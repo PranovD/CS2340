@@ -38,7 +38,7 @@
                 android:layout_alignParentStart="true"
                 android:layout_below="@+id/uniqueKey"
                 android:layout_weight="1"
-                android:text="content" />
+                android:text="@string/content" />
 
             <TextView
                 android:id="@+id/textView10"
@@ -49,7 +49,7 @@
                 android:layout_below="@+id/uniqueKey"
                 android:layout_marginTop="20dp"
                 android:layout_weight="1"
-                android:text="Date" />
+                android:text="@string/date" />
 
             <TextView
                 android:id="@+id/dateContent"
@@ -59,7 +59,7 @@
                 android:layout_alignParentRight="true"
                 android:layout_below="@+id/textView10"
                 android:layout_weight="1"
-                android:text="content" />
+                android:text="@string/content" />
 
             <TextView
                 android:id="@+id/uniqueKey"
@@ -70,7 +70,7 @@
                 android:layout_alignParentTop="true"
                 android:layout_marginTop="19dp"
                 android:layout_weight="1"
-                android:text="unique Key" />
+                android:text="@string/uniqueKey" />
 
             <TextView
                 android:id="@+id/textView12"
@@ -80,7 +80,7 @@
                 android:layout_alignParentStart="true"
                 android:layout_below="@+id/textView10"
                 android:layout_marginTop="22dp"
-                android:text="Location Type" />
+                android:text="@string/locationType" />
 
             <TextView
                 android:id="@+id/locationTypeContent"
@@ -89,7 +89,7 @@
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
                 android:layout_below="@+id/textView12"
-                android:text="content" />
+                android:text="@string/content" />
 
             <TextView
                 android:id="@+id/textView15"
@@ -99,7 +99,7 @@
                 android:layout_alignParentStart="true"
                 android:layout_below="@+id/locationTypeContent"
                 android:layout_marginTop="10dp"
-                android:text="Incident Zip" />
+                android:text="@string/incidentZip" />
 
             <TextView
                 android:id="@+id/incidentZipContent"
@@ -108,7 +108,7 @@
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
                 android:layout_below="@+id/textView15"
-                android:text="content" />
+                android:text="@string/content" />
 
             <TextView
                 android:id="@+id/textView1000"
@@ -118,7 +118,7 @@
                 android:layout_alignParentStart="true"
                 android:layout_below="@+id/incidentZipContent"
                 android:layout_marginTop="11dp"
-                android:text="Incident Address" />
+                android:text="@string/incidentAddress" />
 
             <TextView
                 android:id="@+id/incAddrContent"
@@ -127,7 +127,7 @@
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
                 android:layout_below="@+id/textView1000"
-                android:text="content" />
+                android:text="@string/content" />
 
             <TextView
                 android:id="@+id/textView19"
@@ -137,7 +137,7 @@
                 android:layout_alignParentStart="true"
                 android:layout_below="@+id/incAddrContent"
                 android:layout_marginTop="13dp"
-                android:text="City" />
+                android:text="@string/city" />
 
             <TextView
                 android:id="@+id/cityContent"
@@ -146,7 +146,7 @@
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
                 android:layout_below="@+id/textView19"
-                android:text="content" />
+                android:text="@string/content" />
 
             <TextView
                 android:id="@+id/textView21"
@@ -156,7 +156,7 @@
                 android:layout_alignParentStart="true"
                 android:layout_below="@+id/cityContent"
                 android:layout_marginTop="16dp"
-                android:text="Borough" />
+                android:text="@string/borough" />
 
             <TextView
                 android:id="@+id/boroContent"
@@ -165,7 +165,7 @@
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
                 android:layout_below="@+id/textView21"
-                android:text="content" />
+                android:text="@string/content" />
 
             <TextView
                 android:id="@+id/textView23"
@@ -175,7 +175,7 @@
                 android:layout_alignParentStart="true"
                 android:layout_below="@+id/boroContent"
                 android:layout_marginTop="18dp"
-                android:text="Latitude" />
+                android:text="@string/latitude" />
 
             <TextView
                 android:id="@+id/latitudeContent"
@@ -184,7 +184,7 @@
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
                 android:layout_below="@+id/textView23"
-                android:text="content" />
+                android:text="@string/content" />
 
             <TextView
                 android:id="@+id/textView25"
@@ -194,7 +194,7 @@
                 android:layout_alignParentStart="true"
                 android:layout_below="@+id/latitudeContent"
                 android:layout_marginTop="18dp"
-                android:text="Longitude" />
+                android:text="@string/longitude" />
 
             <TextView
                 android:id="@+id/longitudeContent"
@@ -203,7 +203,7 @@
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
                 android:layout_below="@+id/textView25"
-                android:text="content" />
+                android:text="@string/content" />
 
             <Button
                 android:id="@+id/backButton"
@@ -214,7 +214,7 @@
                 android:layout_below="@+id/longitudeContent"
                 android:layout_marginEnd="33dp"
                 android:layout_marginRight="33dp"
-                android:text="Back" />
+                android:text="@string/Back" />
 
         </RelativeLayout>
 
