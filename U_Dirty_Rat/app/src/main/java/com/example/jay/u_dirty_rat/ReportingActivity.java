@@ -7,9 +7,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import static com.example.jay.u_dirty_rat.MainPage.reportCounter;
 import static com.example.jay.u_dirty_rat.WelcomeScreen.database;
 import static java.lang.Double.parseDouble;
