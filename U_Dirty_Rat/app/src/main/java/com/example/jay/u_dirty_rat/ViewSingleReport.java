@@ -21,9 +21,9 @@ public class ViewSingleReport extends AppCompatActivity {
         TextView content2 = (TextView) findViewById(R.id.dateContent);
         TextView content3 = (TextView) findViewById(R.id.locationTypeContent);
         TextView content4 = (TextView) findViewById(R.id.incidentZipContent);
-        TextView content5 = (TextView) findViewById(R.id.incAddrContent);
+        TextView content5 = (TextView) findViewById(R.id.incAddressContent);
         TextView content6 = (TextView) findViewById(R.id.cityContent);
-        TextView content7 = (TextView) findViewById(R.id.boroContent);
+        TextView content7 = (TextView) findViewById(R.id.boroughContent);
         TextView content8 = (TextView) findViewById(R.id.latitudeContent);
         TextView content9 = (TextView) findViewById(R.id.longitudeContent);
 
