@@ -22,7 +22,6 @@
             android:inputType="textCapCharacters" />
 
         <EditText
-            android:id="@+id/incidentZipInput"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="17dp"
@@ -31,7 +30,6 @@
             android:inputType="number" />
 
         <EditText
-            android:id="@+id/incidentAddressInput"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
@@ -48,7 +46,6 @@
             android:inputType="textPersonName" />
 
         <EditText
-            android:id="@+id/boroughInput"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="11dp"
@@ -57,7 +54,6 @@
             android:inputType="textCapCharacters" />
 
         <EditText
-            android:id="@+id/latitudeInput"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="50dp"
@@ -66,7 +62,6 @@
             android:inputType="numberDecimal" />
 
         <EditText
-            android:id="@+id/longitudeInput"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
