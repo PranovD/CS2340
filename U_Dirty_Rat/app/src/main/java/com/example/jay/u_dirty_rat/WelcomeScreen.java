@@ -9,6 +9,8 @@ import android.widget.Button;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -27,6 +29,8 @@ public class WelcomeScreen extends AppCompatActivity {
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
     private static final String TAG = "WelcomeScreen";
+    FirebaseDatabase fbdb = FirebaseDatabase.getInstance();
+    DatabaseReference dbr = fbdb.getReference();
     @SuppressWarnings("unchecked")
     public static final List<Rat> database = new Stack();
 
@@ -37,6 +41,36 @@ public class WelcomeScreen extends AppCompatActivity {
         setContentView(R.layout.activity_welcome_screen);
 
 
+        //csv to firebase
+//
+//        InputStream inputStream = getResources().openRawResource(R.raw.rat_sightings);
+//        BufferedReader reader = new BufferedReader
+//                (new InputStreamReader(inputStream));
+//        try {
+//            String rawReport = reader.readLine();
+//            while(rawReport != null) { //while there is a report,
+//                String[] pieces = rawReport.split(",",-1);
+//                try {
+//
+//                    Rat report = new Rat(parseInt(pieces[0]),
+//                            pieces[1],
+//                            pieces[2],
+//                            parseInt(pieces[3]),
+//                            pieces[4],
+//                            pieces[5],
+//                            pieces[6],
+//                            parseDouble(pieces[7]),
+//                            parseDouble(pieces[8])); //create rat class object (report).
+//                    dbr.child(pieces[0]).setValue(report); //adding object to the database(firebase).
+//                }
+//                catch (NumberFormatException ignored) {
+//
+//                }
+//
+//                rawReport = reader.readLine();
+//            }
+//        } catch (IOException ignored) {
+//        }
         //csv version
         InputStream inputStream = getResources().openRawResource(R.raw.rat_sightings);
         BufferedReader reader = new BufferedReader

@@ -3,8 +3,17 @@ package com.example.jay.u_dirty_rat;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
+
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.EventListener;
 
 import static com.example.jay.u_dirty_rat.MainPage.reportCounter;
 import static com.example.jay.u_dirty_rat.WelcomeScreen.database;
@@ -12,6 +21,11 @@ import static java.lang.Double.parseDouble;
 import static java.lang.Integer.parseInt;
 
 public class ReportingActivity extends AppCompatActivity {
+
+    private static final String TAG = "ReportingActivity";
+    FirebaseDatabase fbdb = FirebaseDatabase.getInstance();
+    DatabaseReference dbr = fbdb.getReference();
+    ValueEventListener mdbListener;
 
     private static Rat addThis;
     @Override
@@ -53,4 +67,42 @@ public class ReportingActivity extends AppCompatActivity {
 
 
     }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+
+        // Add value event listener
+        ValueEventListener dbListener = new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                // Get Post object and use the values to update the UI
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                // Getting Post failed, log a message
+                Log.w(TAG, "ReportingActivity:onCancelled", databaseError.toException());
+                // ...
+            }
+        };
+        dbr.addValueEventListener(dbListener);
+        // [END post_value_event_listener]
+
+        // Keep copy of post listener so we can remove it when app stops
+        mdbListener = dbListener;
+
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+
+        // Remove post value event listener
+        if (mdbListener != null) {
+            dbr.removeEventListener(mdbListener);
+        }
+    }
+
 }
